@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* ================= ROOT ================= */
 
 :root{
     --bg:#f3f0e9;
@@ -177,6 +174,7 @@ nav{
     background:white;
     font-size:11px;
     font-weight:800;
+    transition:.3s;
 }
 
 .btn:hover{
@@ -944,16 +942,12 @@ footer{
 </style>
 </head>
 
-
 <body>
-
 
 <!-- ================= NAVIGATION ================= -->
 
 <header>
-
 <div class="container">
-
 <nav>
 
 <a href="#" class="logo">
@@ -961,22 +955,18 @@ S<span>.</span>
 </a>
 
 <ul class="nav-links" id="navLinks">
-
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#certificates">Certificates</a></li>
 <li><a href="#demo">Demo</a></li>
 <li><a href="#journey">Journey</a></li>
 <li><a href="#contact">Contact</a></li>
-
 </ul>
 
 <div class="menu" id="menu">☰</div>
 
 </nav>
-
 </div>
-
 </header>
 
 
@@ -996,12 +986,10 @@ Hi, I'm
 </h1>
 
 <p class="hero-text">
-
 I'm a BCA student and aspiring software architect
 interested in full-stack development, web technologies,
 cloud computing, cybersecurity and building useful
 digital experiences.
-
 </p>
 
 <div class="buttons">
@@ -1023,8 +1011,10 @@ Let's Connect
 
 <div class="photo-box">
 
+<!-- PROFILE PHOTO -->
+
 <img
-src="assets/profile photo.png"
+src="C:\Users\DELL\OneDrive\Desktop\Sakti\railfly\assets\profile photo.png"
 alt="Shaktivel">
 
 <div class="photo-card">
@@ -1193,72 +1183,52 @@ what I can build with it.
 <div class="skills">
 
 <div class="skill" onclick="openSkill('frontend')">
-
 <div class="skill-number">01</div>
-
 <div>
 <h3>Frontend Development</h3>
 <p>HTML · CSS · JavaScript · Tailwind CSS</p>
 </div>
-
 <div class="arrow">↗</div>
-
 </div>
 
 
 <div class="skill" onclick="openSkill('backend')">
-
 <div class="skill-number">02</div>
-
 <div>
 <h3>Backend Development</h3>
 <p>Python · Flask · REST APIs</p>
 </div>
-
 <div class="arrow">↗</div>
-
 </div>
 
 
 <div class="skill" onclick="openSkill('database')">
-
 <div class="skill-number">03</div>
-
 <div>
 <h3>Databases</h3>
 <p>MySQL · SQL · DBMS</p>
 </div>
-
 <div class="arrow">↗</div>
-
 </div>
 
 
 <div class="skill" onclick="openSkill('programming')">
-
 <div class="skill-number">04</div>
-
 <div>
 <h3>Programming & App Development</h3>
 <p>Python · Dart · Flutter</p>
 </div>
-
 <div class="arrow">↗</div>
-
 </div>
 
 
 <div class="skill" onclick="openSkill('tools')">
-
 <div class="skill-number">05</div>
-
 <div>
 <h3>Tools & Platforms</h3>
 <p>Git · GitHub · VS Code · Android Studio</p>
 </div>
-
 <div class="arrow">↗</div>
-
 </div>
 
 </div>
@@ -1299,41 +1269,53 @@ my learning beyond the classroom.
 <div class="certificate-grid">
 
 
-<!-- CERTIFICATE 1 -->
+<div class="certificate">
+
+<img
+src="assets/certificate-ipr.png"
+alt="Intellectual Property Rights Certificate">
+
+<div class="certificate-info">
+
+<h3>Intellectual Property Rights</h3>
+
+<p>Professional Certification</p>
+
+<a
+href="assets/certificate-ipr.png"
+target="_blank">
+
+View Certificate ↗
+
+</a>
+
+</div>
+
+</div>
+
 
 <div class="certificate">
 
-    
-    <img src="assets/certificate-ipr.png" alt="Intellectual Property Rights Certificate">
-</a>
+<img
+src="assets/certificate-data-science.png"
+alt="Data Science and Analytics Certificate">
 
 <div class="certificate-info">
-    <h3>Intellectual Property Rights</h3>
-    <p>Professional Certification</p>
 
-    <a href="assets/certificate-ipr.png" target="_blank">
-        View Certificate ↗
-    </a>
-</div>
+<h3>Data Science & Analytics</h3>
 
-</div>
+<p>Professional Certification</p>
 
+<a
+href="assets/certificate-data-science.png"
+target="_blank">
 
-<!-- CERTIFICATE 2 -->
+View Certificate ↗
 
-<div class="certificate">
-
-    <img src="assets/certificate-data-science.png" alt="Data Science and Analytics Certificate">
 </a>
 
-<div class="certificate-info">
-    <h3>Data Science & Analytics</h3>
-    <p>Professional Certification</p>
-
-    <a href="assets/certificate-data-science.png" target="_blank">
-        View Certificate ↗
-    </a>
 </div>
+
 </div>
 
 
@@ -1377,7 +1359,6 @@ application ideas.
 
 <div class="demo-box">
 
-
 <div class="demo-heading">
 
 <div class="demo-logo">
@@ -1390,8 +1371,6 @@ INTERACTIVE DEMO
 
 </div>
 
-
-<!-- MODE -->
 
 <div class="tabs">
 
@@ -1406,10 +1385,7 @@ INTERACTIVE DEMO
 </div>
 
 
-<!-- SEARCH -->
-
 <div class="search">
-
 
 <div class="field">
 
@@ -1468,12 +1444,9 @@ Search
 </div>
 
 
-<!-- RESULT -->
-
 <div class="result" id="demoResult">
 
 <div class="trip">
-
 
 <div class="route">
 
@@ -1576,7 +1549,6 @@ Where I'm heading.
 
 <div class="journey">
 
-
 <div class="journey-card">
 
 <span>NOW</span>
@@ -1617,7 +1589,6 @@ well-structured software systems.
 </p>
 
 </div>
-
 
 </div>
 
@@ -1977,4 +1948,4 @@ document.getElementById("trackBtn").onclick = () => {
 
 </body>
 </html>
-```
+
