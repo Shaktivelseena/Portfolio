@@ -1,1322 +1,3273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Shaktivel | Full Stack Developer</title>
 
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #06101d;
-            --card: #0b1727;
-            --card2: #0e1d30;
-            --text: #f4f8fc;
-            --muted: #91a4b8;
-            --blue: #38bdf8;
-            --blue2: #0ea5e9;
-            --border: rgba(255,255,255,.09);
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: "Inter", sans-serif;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: auto;
-        }
-
-        /* NAVBAR */
-
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(6,16,29,.82);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            height: 75px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: "Space Grotesk";
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--blue);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: .9rem;
-            transition: .3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--blue);
-        }
-
-        .menu {
-            display: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1.3fr .7fr;
-            align-items: center;
-            gap: 60px;
-            padding-top: 80px;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 8px 14px;
-            border: 1px solid rgba(56,189,248,.25);
-            background: rgba(56,189,248,.06);
-            color: var(--blue);
-            border-radius: 30px;
-            font-size: .78rem;
-            margin-bottom: 22px;
-        }
-
-        h1 {
-            font-family: "Space Grotesk";
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            line-height: .95;
-            letter-spacing: -3px;
-        }
-
-        h1 span {
-            color: var(--blue);
-        }
-
-        .hero h2 {
-            margin-top: 22px;
-            font-size: 1.35rem;
-            font-weight: 500;
-            color: #c7d5e3;
-        }
-
-        .hero p {
-            max-width: 650px;
-            color: var(--muted);
-            margin-top: 18px;
-            font-size: 1rem;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: .3s;
-            font-weight: 600;
-            font-size: .9rem;
-        }
-
-        .primary {
-            background: var(--blue);
-            color: #03111c;
-        }
-
-        .secondary {
-            background: transparent;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .secondary:hover {
-            border-color: var(--blue);
-            color: var(--blue);
-        }
-
-        /* PHOTO */
-
-        .profile {
-            display: flex;
-            justify-content: center;
-        }
-
-        .photo-box {
-            width: 330px;
-            height: 410px;
-            padding: 8px;
-            border: 1px solid rgba(56,189,248,.35);
-            border-radius: 20px;
-            transform: rotate(2deg);
-            background: linear-gradient(145deg, rgba(56,189,248,.12), transparent);
-        }
-
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-            filter: grayscale(10%);
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 110px 0;
-        }
-
-        .section-title {
-            margin-bottom: 50px;
-        }
-
-        .section-title small {
-            color: var(--blue);
-            font-weight: 600;
-        }
-
-        .section-title h2 {
-            font-family: "Space Grotesk";
-            font-size: 2.5rem;
-            margin-top: 8px;
-        }
-
-        .section-title p {
-            color: var(--muted);
-            max-width: 650px;
-            margin-top: 10px;
-        }
-
-        /* ABOUT */
-
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .about p {
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .info {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 22px;
-            border-radius: 12px;
-        }
-
-        .info strong {
-            display: block;
-            font-size: 1.5rem;
-            color: var(--blue);
-        }
-
-        .info span {
-            color: var(--muted);
-            font-size: .85rem;
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .skill {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 12px;
-            transition: .3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-6px);
-            border-color: rgba(56,189,248,.4);
-        }
-
-        .skill h3 {
-            font-family: "Space Grotesk";
-            margin-bottom: 8px;
-        }
-
-        .skill p {
-            color: var(--muted);
-            font-size: .85rem;
-        }
-
-        /* RAILFLY */
-
-        .railfly {
-            background:
-                linear-gradient(135deg, rgba(56,189,248,.08), transparent 50%),
-                var(--card);
-            border: 1px solid rgba(56,189,248,.18);
-            border-radius: 20px;
-            padding: 45px;
-        }
-
-        .railfly-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .railfly h3 {
-            font-family: "Space Grotesk";
-            font-size: 2.5rem;
-        }
-
-        .railfly h3 span {
-            color: var(--blue);
-        }
-
-        .railfly p {
-            color: var(--muted);
-            margin: 15px 0;
-        }
-
-        .tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 20px 0;
-        }
-
-        .tech span {
-            background: rgba(255,255,255,.05);
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: .75rem;
-            color: #b9c9d8;
-        }
-
-        /* DEMO */
-
-        .demo {
-            background: #071321;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 25px;
-        }
-
-        .demo-top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 25px;
-        }
-
-        .live {
-            color: #4ade80;
-            font-size: .75rem;
-        }
-
-        .route {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .station {
-            text-align: center;
-        }
-
-        .station strong {
-            display: block;
-            font-size: 1.3rem;
-        }
-
-        .station small {
-            color: var(--muted);
-        }
-
-        .line {
-            flex: 1;
-            height: 2px;
-            background: var(--blue);
-            position: relative;
-        }
-
-        .line::after {
-            content: "🚆";
-            position: absolute;
-            right: 25%;
-            top: -14px;
-        }
-
-        .demo-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .demo-info div {
-            background: rgba(255,255,255,.04);
-            padding: 12px;
-            border-radius: 8px;
-        }
-
-        .demo-info small {
-            color: var(--muted);
-            display: block;
-        }
-
-        .demo-info strong {
-            font-size: .9rem;
-        }
-
-        /* PROJECTS */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .project {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            transition: .3s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-            border-color: rgba(56,189,248,.3);
-        }
-
-        .project h3 {
-            font-family: "Space Grotesk";
-            font-size: 1.4rem;
-        }
-
-        .project p {
-            color: var(--muted);
-            margin: 12px 0 20px;
-        }
-
-        .project a {
-            color: var(--blue);
-            font-size: .9rem;
-            font-weight: 600;
-        }
-
-        /* CERTIFICATES */
-
-        .certificates {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .certificate {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: .3s;
-        }
-
-        .certificate:hover {
-            transform: translateY(-6px);
-        }
-
-        .certificate img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-        }
-
-        .certificate-content {
-            padding: 20px;
-        }
-
-        .certificate h3 {
-            font-size: 1rem;
-        }
-
-        .certificate p {
-            color: var(--muted);
-            font-size: .8rem;
-            margin: 6px 0 15px;
-        }
-
-        .certificate a {
-            color: var(--blue);
-            font-size: .85rem;
-            font-weight: 600;
-        }
-
-        /* EDUCATION */
-
-        .timeline {
-            border-left: 2px solid var(--blue);
-            padding-left: 30px;
-        }
-
-        .timeline-item {
-            margin-bottom: 35px;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: "";
-            width: 11px;
-            height: 11px;
-            background: var(--blue);
-            border-radius: 50%;
-            position: absolute;
-            left: -37px;
-            top: 8px;
-        }
-
-        .timeline-item h3 {
-            font-family: "Space Grotesk";
-        }
-
-        .timeline-item span {
-            color: var(--blue);
-            font-size: .85rem;
-        }
-
-        .timeline-item p {
-            color: var(--muted);
-            margin-top: 5px;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .contact h2 {
-            font-family: "Space Grotesk";
-            font-size: 3rem;
-        }
-
-        .contact p {
-            color: var(--muted);
-            margin: 15px 0 30px;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .socials a {
-            border: 1px solid var(--border);
-            padding: 11px 18px;
-            border-radius: 8px;
-            color: var(--muted);
-            transition: .3s;
-        }
-
-        .socials a:hover {
-            color: var(--blue);
-            border-color: var(--blue);
-        }
-
-        footer {
-            border-top: 1px solid var(--border);
-            text-align: center;
-            padding: 25px;
-            color: var(--muted);
-            font-size: .8rem;
-        }
-
-        /* ANIMATION */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: .7s ease;
-        }
-
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* MOBILE */
-
-        @media(max-width: 850px) {
-
-            .nav-links {
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                background: var(--bg);
-                flex-direction: column;
-                padding: 25px;
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu {
-                display: block;
-            }
-
-            .hero,
-            .about,
-            .railfly-content {
-                grid-template-columns: 1fr;
-            }
-
-            .profile {
-                order: -1;
-            }
-
-            .photo-box {
-                width: 260px;
-                height: 320px;
-            }
-
-            .skills {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .certificates {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media(max-width: 550px) {
-
-            h1 {
-                font-size: 3.3rem;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .skills,
-            .projects,
-            .certificates {
-                grid-template-columns: 1fr;
-            }
-
-            .railfly {
-                padding: 25px;
-            }
-
-            .contact h2 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --background:#f4f1eb;
+    --surface:#ffffff;
+    --surface-dark:#11151a;
+
+    --text:#15191e;
+    --muted:#68717b;
+
+    --accent:#1769ff;
+    --accent-light:#e8f0ff;
+
+    --border:#ddd9d1;
+
+    --green:#1c9b65;
+
+    --radius:18px;
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:"Manrope",sans-serif;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+.container{
+
+    width:min(1180px,90%);
+
+    margin:auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+header{
+
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(244,241,235,.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(0,0,0,.07);
+}
+
+nav{
+
+    height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.logo{
+
+    font-family:"Sora",sans-serif;
+
+    font-size:24px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:30px;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    color:#68717b;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--text);
+}
+
+.menu{
+
+    display:none;
+
+    cursor:pointer;
+
+    font-size:25px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    padding-top:120px;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 13px;
+
+    border-radius:50px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+    color:#59626c;
+}
+
+.hero-label::before{
+
+    content:"";
+
+    width:7px;
+
+    height:7px;
+
+    background:var(--green);
+
+    border-radius:50%;
+}
+
+.hero h1{
+
+    font-family:"Sora",sans-serif;
+
+    font-size:clamp(55px,7vw,94px);
+
+    line-height:.98;
+
+    letter-spacing:-5px;
+
+    margin:28px 0 25px;
+
+    max-width:750px;
+}
+
+.hero h1 span{
+    color:var(--accent);
+}
+
+.hero-description{
+
+    max-width:600px;
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    line-height:1.9;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:32px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:13px 19px;
+
+    border-radius:8px;
+
+    border:1px solid var(--border);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btn-primary{
+
+    background:var(--text);
+
+    color:white;
+
+    border-color:var(--text);
+}
+
+.btn-secondary{
+
+    background:white;
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+}
+
+
+/* HERO PHOTO */
+
+.hero-visual{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.photo-wrapper{
+
+    width:390px;
+
+    height:480px;
+
+    position:relative;
+}
+
+.photo-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border:1px solid var(--accent);
+
+    border-radius:190px 190px 18px 18px;
+
+    transform:translate(15px,15px);
+
+    opacity:.5;
+}
+
+.photo-wrapper img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:190px 190px 18px 18px;
+
+    position:relative;
+
+    z-index:2;
+
+    background:#ddd;
+}
+
+.photo-badge{
+
+    position:absolute;
+
+    z-index:3;
+
+    bottom:25px;
+
+    left:-35px;
+
+    padding:16px 20px;
+
+    background:var(--surface-dark);
+
+    color:white;
+
+    border-radius:10px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.photo-badge strong{
+
+    display:block;
+
+    font-family:"Sora";
+
+    font-size:13px;
+}
+
+.photo-badge span{
+
+    color:#aeb5bd;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+
+    background:var(--surface-dark);
+
+    color:white;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    transform:rotate(-1deg);
+
+    width:105%;
+
+    margin-left:-2.5%;
+}
+
+.marquee-track{
+
+    display:inline-flex;
+
+    gap:45px;
+
+    padding:18px 0;
+
+    animation:marquee 25s linear infinite;
+}
+
+.marquee span{
+
+    font-family:"Sora";
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.marquee span::after{
+
+    content:"✦";
+
+    margin-left:45px;
+
+    color:#6394ff;
+}
+
+@keyframes marquee{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+    padding:130px 0;
+}
+
+.section-top{
+
+    display:grid;
+
+    grid-template-columns:180px 1fr;
+
+    gap:60px;
+
+    margin-bottom:70px;
+}
+
+.section-number{
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+}
+
+.section-title{
+
+    font-family:"Sora";
+
+    font-size:clamp(38px,5vw,68px);
+
+    line-height:1.05;
+
+    letter-spacing:-3px;
+
+    max-width:800px;
+}
+
+.section-description{
+
+    color:var(--muted);
+
+    max-width:650px;
+
+    margin-top:18px;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+}
+
+.about-large{
+
+    font-family:"Sora";
+
+    font-size:37px;
+
+    line-height:1.35;
+
+    letter-spacing:-1.5px;
+}
+
+.about-large span{
+    color:var(--accent);
+}
+
+.about-text{
+
+    color:var(--muted);
+
+    line-height:1.9;
+}
+
+.about-text p{
+    margin-bottom:18px;
+}
+
+.about-stats{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    border-top:1px solid var(--border);
+}
+
+.stat{
+
+    padding:22px 0;
+
+    border-bottom:1px solid var(--border);
+}
+
+.stat strong{
+
+    font-family:"Sora";
+
+    font-size:28px;
+}
+
+.stat span{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-list{
+
+    border-top:1px solid var(--border);
+}
+
+.skill{
+
+    display:grid;
+
+    grid-template-columns:70px 1fr auto;
+
+    align-items:center;
+
+    padding:30px 15px;
+
+    border-bottom:1px solid var(--border);
+
+    transition:.35s;
+}
+
+.skill:hover{
+
+    background:white;
+
+    padding-left:28px;
+
+    padding-right:28px;
+}
+
+.skill-number{
+
+    color:#9aa1a9;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.skill h3{
+
+    font-family:"Sora";
+
+    font-size:24px;
+
+    font-weight:600;
+
+    letter-spacing:-.7px;
+}
+
+.skill p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+.skill-arrow{
+
+    font-size:23px;
+
+    transition:.3s;
+}
+
+.skill:hover .skill-arrow{
+
+    color:var(--accent);
+
+    transform:translate(4px,-4px);
+}
+
+
+/* =========================================================
+   RAILFLY
+========================================================= */
+
+.railfly-section{
+
+    background:#11151a;
+
+    color:white;
+}
+
+.railfly-section .section-description{
+    color:#89919a;
+}
+
+.railfly-container{
+
+    background:#171c22;
+
+    border:1px solid #2b323b;
+
+    border-radius:24px;
+
+    padding:55px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.railfly-container::after{
+
+    content:"RAILFLY";
+
+    position:absolute;
+
+    right:-50px;
+
+    bottom:-55px;
+
+    font-family:"Sora";
+
+    font-size:180px;
+
+    font-weight:800;
+
+    color:rgba(255,255,255,.025);
+
+    pointer-events:none;
+}
+
+.railfly-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:30px;
+}
+
+.railfly-title{
+
+    font-family:"Sora";
+
+    font-size:clamp(55px,7vw,90px);
+
+    line-height:1;
+
+    letter-spacing:-5px;
+}
+
+.railfly-title span{
+    color:#6c9cff;
+}
+
+.railfly-tag{
+
+    border:1px solid #343c46;
+
+    padding:8px 13px;
+
+    border-radius:50px;
+
+    color:#9aa3ad;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.railfly-description{
+
+    color:#939ca6;
+
+    max-width:650px;
+
+    margin:25px 0 40px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   RAILFLY DEMO
+========================================================= */
+
+.demo{
+
+    position:relative;
+
+    z-index:2;
+
+    background:#f7f8fa;
+
+    color:#15191e;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 30px 70px rgba(0,0,0,.3);
+}
+
+.demo-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 25px;
+
+    border-bottom:1px solid #e3e5e8;
+}
+
+.demo-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-family:"Sora";
+
+    font-weight:700;
+}
+
+.demo-logo{
+
+    width:30px;
+
+    height:30px;
+
+    border-radius:8px;
+
+    background:#1769ff;
+
+    color:white;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:13px;
+}
+
+.demo-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:10px;
+
+    color:#188052;
+
+    font-weight:700;
+}
+
+.demo-status::before{
+
+    content:"";
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#1ca36b;
+}
+
+
+/* DEMO TABS */
+
+.demo-tabs{
+
+    display:flex;
+
+    gap:8px;
+
+    padding:18px 25px;
+
+    background:#eef0f3;
+}
+
+.demo-tab{
+
+    border:0;
+
+    background:transparent;
+
+    padding:9px 16px;
+
+    border-radius:7px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:#707984;
+
+    cursor:pointer;
+}
+
+.demo-tab.active{
+
+    background:#fff;
+
+    color:#1769ff;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+
+/* SEARCH */
+
+.demo-search{
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 170px auto;
+
+    gap:10px;
+
+    border-bottom:1px solid #e3e5e8;
+}
+
+.field{
+
+    background:#f1f3f5;
+
+    border:1px solid #e2e5e8;
+
+    border-radius:9px;
+
+    padding:10px 13px;
+}
+
+.field label{
+
+    display:block;
+
+    font-size:9px;
+
+    color:#8a929b;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    margin-bottom:4px;
+}
+
+.field select,
+.field input{
+
+    width:100%;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#1b2026;
+}
+
+.search-btn{
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#1769ff;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.search-btn:hover{
+
+    background:#0d57df;
+
+    transform:translateY(-2px);
+}
+
+
+/* DEMO RESULT */
+
+.demo-result{
+
+    padding:25px;
+
+    display:none;
+}
+
+.demo-result.show{
+    display:block;
+}
+
+.result-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.result-head strong{
+
+    font-family:"Sora";
+
+    font-size:15px;
+}
+
+.cheapest{
+
+    color:#168258;
+
+    background:#e8f7f0;
+
+    padding:6px 9px;
+
+    border-radius:5px;
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+.trip-card{
+
+    border:1px solid #e1e4e8;
+
+    border-radius:13px;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 120px;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.trip-route{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.trip-city strong{
+
+    font-family:"Sora";
+
+    font-size:21px;
+}
+
+.trip-city small{
+
+    display:block;
+
+    color:#858d96;
+
+    font-size:9px;
+}
+
+.trip-line{
+
+    height:1px;
+
+    background:#b9c0c7;
+
+    flex:1;
+
+    position:relative;
+}
+
+.trip-line::after{
+
+    content:"✦";
+
+    position:absolute;
+
+    left:50%;
+
+    top:-9px;
+
+    color:#1769ff;
+}
+
+.trip-details{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.detail{
+
+    background:#f5f6f7;
+
+    border-radius:7px;
+
+    padding:9px;
+}
+
+.detail small{
+
+    display:block;
+
+    color:#8b929a;
+
+    font-size:8px;
+}
+
+.detail strong{
+
+    font-size:10px;
+}
+
+.book-btn{
+
+    border:0;
+
+    background:#15191e;
+
+    color:white;
+
+    padding:11px;
+
+    border-radius:7px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* LIVE STATUS */
+
+.live-status{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    background:#edf7f2;
+
+    color:#237451;
+
+    display:none;
+
+    font-size:11px;
+}
+
+.live-status.show{
+    display:block;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.project-grid{
+
+    display:grid;
+
+    grid-template-columns:1.4fr .6fr;
+
+    gap:18px;
+}
+
+.project-card{
+
+    min-height:340px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:35px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.project-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.07);
+}
+
+.project-card.large{
+
+    min-height:450px;
+}
+
+.project-number{
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+.project-card h3{
+
+    font-family:"Sora";
+
+    font-size:34px;
+
+    margin-top:35px;
+
+    letter-spacing:-1.5px;
+}
+
+.project-card p{
+
+    max-width:500px;
+
+    color:var(--muted);
+
+    margin-top:14px;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+.project-tech{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:25px;
+}
+
+.project-tech span{
+
+    background:#f0f2f4;
+
+    padding:6px 9px;
+
+    border-radius:5px;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    color:#69717b;
+}
+
+.project-link{
+
+    position:absolute;
+
+    bottom:30px;
+
+    color:var(--accent);
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   CERTIFICATES
+========================================================= */
+
+.certificate-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.certificate{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.35s;
+}
+
+.certificate:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.07);
+}
+
+.certificate img{
+
+    width:100%;
+
+    height:210px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.certificate-info{
+
+    padding:22px;
+}
+
+.certificate-info h3{
+
+    font-family:"Sora";
+
+    font-size:16px;
+}
+
+.certificate-info p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin:5px 0 15px;
+}
+
+.certificate-info a{
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+.journey-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:30px;
+}
+
+.journey-card span{
+
+    color:var(--accent);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.journey-card h3{
+
+    font-family:"Sora";
+
+    font-size:22px;
+
+    margin:18px 0 10px;
+}
+
+.journey-card p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact{
+
+    background:#11151a;
+
+    color:white;
+
+    border-radius:25px;
+
+    padding:90px;
+
+    text-align:center;
+}
+
+.contact .section-number{
+    color:#6c9cff;
+}
+
+.contact h2{
+
+    font-family:"Sora";
+
+    font-size:clamp(45px,7vw,85px);
+
+    line-height:1;
+
+    letter-spacing:-4px;
+
+    margin-top:20px;
+}
+
+.contact h2 span{
+    color:#6c9cff;
+}
+
+.contact p{
+
+    color:#89919a;
+
+    max-width:520px;
+
+    margin:22px auto 30px;
+
+    font-size:14px;
+}
+
+.socials{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+}
+
+.socials a{
+
+    border:1px solid #303740;
+
+    padding:11px 17px;
+
+    border-radius:7px;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+
+    border-color:#6c9cff;
+
+    color:#6c9cff;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:30px 0;
+
+    color:#7d858e;
+
+    font-size:10px;
+}
+
+.footer-inner{
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:opacity .8s ease,
+               transform .8s ease;
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+
+        display:none;
+
+        position:absolute;
+
+        top:78px;
+
+        left:0;
+
+        width:100%;
+
+        background:var(--background);
+
+        border-bottom:1px solid var(--border);
+
+        padding:25px;
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        padding-top:120px;
+
+        text-align:center;
+    }
+
+    .hero-description{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        margin-top:30px;
+    }
+
+    .section-top{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .project-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .certificate-grid{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .journey{
+
+        grid-template-columns:1fr;
+    }
+
+    .demo-search{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .search-btn{
+
+        min-height:45px;
+    }
+
+    .trip-card{
+
+        grid-template-columns:1fr;
+    }
+
+    .contact{
+
+        padding:60px 30px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    section{
+        padding:90px 0;
+    }
+
+    .hero h1{
+
+        font-size:52px;
+
+        letter-spacing:-3px;
+    }
+
+    .photo-wrapper{
+
+        width:280px;
+
+        height:370px;
+    }
+
+    .photo-badge{
+
+        left:-10px;
+    }
+
+    .railfly-container{
+
+        padding:25px;
+    }
+
+    .railfly-header{
+
+        display:block;
+    }
+
+    .railfly-tag{
+
+        display:inline-block;
+
+        margin-top:20px;
+    }
+
+    .railfly-title{
+
+        font-size:55px;
+    }
+
+    .demo-search{
+
+        grid-template-columns:1fr;
+    }
+
+    .demo-tabs{
+
+        overflow-x:auto;
+    }
+
+    .demo-tab{
+
+        white-space:nowrap;
+    }
+
+    .certificate-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .skill{
+
+        grid-template-columns:40px 1fr auto;
+
+        padding:23px 5px;
+    }
+
+    .skill h3{
+
+        font-size:19px;
+    }
+
+    .skill p{
+
+        font-size:10px;
+    }
+
+    .contact h2{
+
+        font-size:48px;
+    }
+
+    .footer-inner{
+
+        display:block;
+
+        text-align:center;
+    }
+
+    .footer-inner span{
+
+        display:block;
+
+        margin-top:5px;
+    }
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVBAR -->
 
-    <header>
-        <div class="container">
-            <nav>
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-                <a href="#" class="logo">
-                    S<span>.</span>
-                </a>
+<header>
 
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#railfly">RailFly</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<div class="container">
 
-                <div class="menu" id="menu">☰</div>
+<nav>
 
-            </nav>
-        </div>
-    </header>
+<a href="#" class="logo">
+S<span>.</span>
+</a>
 
 
-    <!-- HERO -->
+<ul class="nav-links" id="navLinks">
 
-    <main>
+<li>
+<a href="#about">About</a>
+</li>
 
-        <section class="container hero">
+<li>
+<a href="#skills">Skills</a>
+</li>
 
-            <div class="hero-content reveal">
+<li>
+<a href="#railfly">RailFly</a>
+</li>
 
-                <span class="tag">BCA STUDENT • FULL STACK DEVELOPER</span>
+<li>
+<a href="#projects">Projects</a>
+</li>
 
-                <h1>
-                    SHAKTIVEL<br>
-                    <span>SHARPER.</span>
-                </h1>
+<li>
+<a href="#certificates">Certificates</a>
+</li>
 
-                <h2>
-                    Building technology with purpose.
-                </h2>
+<li>
+<a href="#contact">Contact</a>
+</li>
 
-                <p>
-                    I'm a BCA student and aspiring software architect focused on
-                    building modern web applications, intelligent systems and
-                    meaningful digital experiences.
-                </p>
+</ul>
 
-                <div class="buttons">
-                    <a href="#projects" class="btn primary">
-                        Explore My Work →
-                    </a>
 
-                    <a href="#contact" class="btn secondary">
-                        Let's Connect
-                    </a>
-                </div>
+<div class="menu" id="menu">
+☰
+</div>
 
-            </div>
 
+</nav>
 
-            <div class="profile reveal">
+</div>
 
-                <div class="photo-box">
-                    <img src="assets/profile.jpg" alt="Shaktivel">
-                </div>
+</header>
 
-            </div>
 
-        </section>
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-        <!-- ABOUT -->
+<section class="hero container">
 
-        <section id="about">
 
-            <div class="container">
+<div class="hero-content reveal">
 
-                <div class="section-title reveal">
-                    <small>01 — ABOUT</small>
-                    <h2>More than just code.</h2>
-                    <p>
-                        I enjoy turning ideas into useful digital products.
-                    </p>
-                </div>
+<div class="hero-label">
+AVAILABLE FOR OPPORTUNITIES
+</div>
 
-                <div class="about">
 
-                    <div class="reveal">
+<h1>
 
-                        <p>
-                            I'm currently pursuing my BCA and developing my
-                            skills across frontend development, backend
-                            technologies, databases, cloud computing and
-                            cybersecurity.
-                        </p>
+Building
+<span>digital</span>
+experiences.
 
-                        <p>
-                            My long-term goal is to become a software architect
-                            capable of designing reliable, scalable and
-                            user-focused systems.
-                        </p>
+</h1>
 
-                        <p>
-                            I believe good software should not only work well,
-                            but should also be simple, purposeful and enjoyable
-                            to use.
-                        </p>
 
-                    </div>
+<p class="hero-description">
 
-                    <div class="info-grid reveal">
+I'm Shaktivel — a BCA student and aspiring software
+architect focused on building thoughtful web applications,
+useful products and technology that solves real problems.
 
-                        <div class="info">
-                            <strong>01</strong>
-                            <span>Developer</span>
-                        </div>
+</p>
 
-                        <div class="info">
-                            <strong>02</strong>
-                            <span>Problem Solver</span>
-                        </div>
 
-                        <div class="info">
-                            <strong>03</strong>
-                            <span>System Thinker</span>
-                        </div>
+<div class="hero-buttons">
 
-                        <div class="info">
-                            <strong>04</strong>
-                            <span>Lifelong Learner</span>
-                        </div>
+<a href="#railfly" class="btn btn-primary">
+Explore RailFly →
+</a>
 
-                    </div>
+<a href="#contact" class="btn btn-secondary">
+Let's Connect
+</a>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </section>
 
 
-        <!-- SKILLS -->
+<div class="hero-visual reveal">
 
-        <section id="skills">
+<div class="photo-wrapper">
 
-            <div class="container">
+<img
+src="assets/profile.jpeg"
+alt="Shaktivel profile photo"
+>
 
-                <div class="section-title reveal">
-                    <small>02 — SKILLS</small>
-                    <h2>Tools I build with.</h2>
-                </div>
+<div class="photo-badge">
 
-                <div class="skills">
+<strong>SHAKTIVEL</strong>
 
-                    <div class="skill reveal">
-                        <h3>Frontend</h3>
-                        <p>HTML, CSS, JavaScript, Tailwind CSS</p>
-                    </div>
+<span>FULL STACK DEVELOPER</span>
 
-                    <div class="skill reveal">
-                        <h3>Backend</h3>
-                        <p>Python, Flask, REST APIs</p>
-                    </div>
+</div>
 
-                    <div class="skill reveal">
-                        <h3>Database</h3>
-                        <p>MySQL, SQL, DBMS</p>
-                    </div>
+</div>
 
-                    <div class="skill reveal">
-                        <h3>Programming</h3>
-                        <p>Python, JavaScript, Dart</p>
-                    </div>
+</div>
 
-                    <div class="skill reveal">
-                        <h3>App Development</h3>
-                        <p>Flutter and Dart</p>
-                    </div>
 
-                    <div class="skill reveal">
-                        <h3>Development</h3>
-                        <p>Git, GitHub, VS Code</p>
-                    </div>
+</section>
 
-                    <div class="skill reveal">
-                        <h3>Cloud</h3>
-                        <p>Cloud computing fundamentals</p>
-                    </div>
 
-                    <div class="skill reveal">
-                        <h3>Security</h3>
-                        <p>Cybersecurity fundamentals</p>
-                    </div>
 
-                </div>
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
 
-            </div>
+<div class="marquee">
 
-        </section>
+<div class="marquee-track">
 
+<span>DEVELOPMENT</span>
+<span>DESIGN</span>
+<span>SOFTWARE</span>
+<span>INNOVATION</span>
+<span>DEVELOPMENT</span>
+<span>DESIGN</span>
+<span>SOFTWARE</span>
+<span>INNOVATION</span>
 
-        <!-- RAILFLY -->
+</div>
 
-        <section id="railfly">
+</div>
 
-            <div class="container">
 
-                <div class="section-title reveal">
-                    <small>03 — FEATURED PROJECT</small>
-                    <h2>A project I'm building with purpose.</h2>
-                </div>
 
-                <div class="railfly reveal">
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-                    <div class="railfly-content">
+<section id="about">
 
-                        <div>
+<div class="container">
 
-                            <h3>
-                                Rail<span>Fly</span>
-                            </h3>
 
-                            <p>
-                                A modern journey platform designed to combine
-                                train and flight travel into one intelligent
-                                travel experience.
-                            </p>
+<div class="section-top reveal">
 
-                            <div class="tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>Flutter</span>
-                                <span>Python</span>
-                                <span>REST API</span>
-                            </div>
+<div class="section-number">
+01 / ABOUT
+</div>
 
-                            <div class="buttons">
+<div>
 
-                                <a href="#" class="btn primary">
-                                    Live Demo →
-                                </a>
+<h2 class="section-title">
+More than just writing code.
+</h2>
 
-                                <a href="#" class="btn secondary">
-                                    GitHub ↗
-                                </a>
+<p class="section-description">
 
-                            </div>
+I enjoy taking an idea, understanding the problem behind it
+and turning it into a useful digital experience.
 
-                        </div>
+</p>
 
+</div>
 
-                        <!-- INTERACTIVE DEMO -->
+</div>
 
-                        <div class="demo">
 
-                            <div class="demo-top">
-                                <strong>Journey Preview</strong>
-                                <span class="live">● LIVE</span>
-                            </div>
 
-                            <div class="route">
+<div class="about-grid">
 
-                                <div class="station">
-                                    <strong>BLR</strong>
-                                    <small>Bengaluru</small>
-                                </div>
 
-                                <div class="line"></div>
+<div class="about-large reveal">
 
-                                <div class="station">
-                                    <strong>MAA</strong>
-                                    <small>Chennai</small>
-                                </div>
+A <span>BCA student</span> building toward
+a future in full-stack development
+and software architecture.
 
-                            </div>
+</div>
 
-                            <div class="demo-info">
 
-                                <div>
-                                    <small>Departure</small>
-                                    <strong>06:30 AM</strong>
-                                </div>
+<div class="about-text reveal">
 
-                                <div>
-                                    <small>Arrival</small>
-                                    <strong>12:45 PM</strong>
-                                </div>
+<p>
 
-                                <div>
-                                    <small>Platform</small>
-                                    <strong>04</strong>
-                                </div>
+I'm developing my skills across frontend development,
+backend systems, databases, cloud computing and
+cybersecurity.
 
-                                <div>
-                                    <small>Coach</small>
-                                    <strong>B2</strong>
-                                </div>
+</p>
 
-                            </div>
+<p>
 
-                        </div>
+I enjoy learning by building real projects instead of
+only studying theory.
 
-                    </div>
+</p>
 
-                </div>
+<p>
 
-            </div>
+My long-term goal is to design reliable, scalable and
+meaningful software systems.
 
-        </section>
+</p>
 
 
-        <!-- PROJECTS -->
+<div class="about-stats">
 
-        <section id="projects">
+<div class="stat">
 
-            <div class="container">
+<strong>01</strong>
 
-                <div class="section-title reveal">
-                    <small>04 — PROJECTS</small>
-                    <h2>Selected work.</h2>
-                </div>
+<span>Featured Product</span>
 
-                <div class="projects">
+</div>
 
-                    <article class="project reveal">
 
-                        <h3>RailFly</h3>
+<div class="stat">
 
-                        <p>
-                            Train and flight journey platform with smart travel
-                            features and journey tracking.
-                        </p>
+<strong>∞</strong>
 
-                        <div class="tech">
-                            <span>Web</span>
-                            <span>Flutter</span>
-                            <span>Python</span>
-                        </div>
+<span>Ideas to Build</span>
 
-                        <a href="#">View Project →</a>
+</div>
 
-                    </article>
 
+<div class="stat">
 
-                    <article class="project reveal">
+<strong>24/7</strong>
 
-                        <h3>Developer Portfolio</h3>
+<span>Learning Mindset</span>
 
-                        <p>
-                            A personal developer portfolio focused on modern
-                            frontend design and responsive development.
-                        </p>
+</div>
 
-                        <div class="tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
 
-                        <a href="#">View Project →</a>
+<div class="stat">
 
-                    </article>
+<strong>01</strong>
 
-                </div>
+<span>Big Goal</span>
 
-            </div>
+</div>
 
-        </section>
+</div>
 
 
-        <!-- CERTIFICATES -->
+</div>
 
-        <section id="certificates">
 
-            <div class="container">
+</div>
 
-                <div class="section-title reveal">
+</div>
 
-                    <small>05 — CERTIFICATES</small>
+</section>
 
-                    <h2>Proof of learning.</h2>
 
-                    <p>
-                        Certifications and achievements from my learning journey.
-                    </p>
 
-                </div>
+<!-- =====================================================
+     SKILLS
+===================================================== -->
 
+<section id="skills">
 
-                <div class="certificates">
+<div class="container">
 
 
-                    <article class="certificate reveal">
+<div class="section-top reveal">
 
-                        <img
-                            src="assets/certificates/certificate1.jpg"
-                            alt="Certificate 1"
-                        >
+<div class="section-number">
+02 / EXPERTISE
+</div>
 
-                        <div class="certificate-content">
+<div>
 
-                            <h3>Certificate Name</h3>
+<h2 class="section-title">
+Tools I use to turn ideas into products.
+</h2>
 
-                            <p>
-                                Issuing Organization
-                            </p>
+<p class="section-description">
 
-                            <a href="assets/certificates/certificate1.pdf"
-                               target="_blank">
-                                View Certificate ↗
-                            </a>
+A growing technical toolkit developed through coursework,
+experimentation and personal projects.
 
-                        </div>
+</p>
 
-                    </article>
+</div>
 
+</div>
 
-                    <article class="certificate reveal">
 
-                        <img
-                            src="assets/certificates/certificate2.jpg"
-                            alt="Certificate 2"
-                        >
 
-                        <div class="certificate-content">
+<div class="skill-list">
 
-                            <h3>Certificate Name</h3>
 
-                            <p>
-                                Issuing Organization
-                            </p>
+<div class="skill reveal">
 
-                            <a href="assets/certificates/certificate2.pdf"
-                               target="_blank">
-                                View Certificate ↗
-                            </a>
+<div class="skill-number">01</div>
 
-                        </div>
+<div>
 
-                    </article>
+<h3>Frontend Development</h3>
 
+<p>
+HTML · CSS · JavaScript · Tailwind CSS
+</p>
 
-                    <article class="certificate reveal">
+</div>
 
-                        <img
-                            src="assets/certificates/certificate3.jpg"
-                            alt="Certificate 3"
-                        >
+<div class="skill-arrow">
+↗
+</div>
 
-                        <div class="certificate-content">
+</div>
 
-                            <h3>Certificate Name</h3>
 
-                            <p>
-                                Issuing Organization
-                            </p>
 
-                            <a href="assets/certificates/certificate3.pdf"
-                               target="_blank">
-                                View Certificate ↗
-                            </a>
+<div class="skill reveal">
 
-                        </div>
+<div class="skill-number">02</div>
 
-                    </article>
+<div>
 
+<h3>Backend Development</h3>
 
-                </div>
+<p>
+Python · Flask · REST APIs
+</p>
 
-            </div>
+</div>
 
-        </section>
+<div class="skill-arrow">
+↗
+</div>
 
+</div>
 
-        <!-- EDUCATION -->
 
-        <section id="education">
 
-            <div class="container">
+<div class="skill reveal">
 
-                <div class="section-title reveal">
-                    <small>06 — JOURNEY</small>
-                    <h2>Education & growth.</h2>
-                </div>
+<div class="skill-number">03</div>
 
-                <div class="timeline">
+<div>
 
-                    <div class="timeline-item reveal">
+<h3>Database & Data</h3>
 
-                        <span>2024 — PRESENT</span>
+<p>
+MySQL · SQL · DBMS
+</p>
 
-                        <h3>Bachelor of Computer Applications</h3>
+</div>
 
-                        <p>
-                            Building a strong foundation in programming,
-                            databases, software development and computer science.
-                        </p>
+<div class="skill-arrow">
+↗
+</div>
 
-                    </div>
+</div>
 
 
-                    <div class="timeline-item reveal">
 
-                        <span>NOW</span>
+<div class="skill reveal">
 
-                        <h3>Full Stack Development</h3>
+<div class="skill-number">04</div>
 
-                        <p>
-                            Developing projects using frontend, backend,
-                            databases and APIs.
-                        </p>
+<div>
 
-                    </div>
+<h3>Application Development</h3>
 
+<p>
+Flutter · Dart
+</p>
 
-                    <div class="timeline-item reveal">
+</div>
 
-                        <span>FUTURE</span>
+<div class="skill-arrow">
+↗
+</div>
 
-                        <h3>Software Architect</h3>
+</div>
 
-                        <p>
-                            Aspiring to design scalable and reliable software
-                            systems.
-                        </p>
 
-                    </div>
 
-                </div>
+<div class="skill reveal">
 
-            </div>
+<div class="skill-number">05</div>
 
-        </section>
+<div>
 
+<h3>Development Tools</h3>
 
-        <!-- CONTACT -->
+<p>
+Git · GitHub · VS Code
+</p>
 
-        <section id="contact">
+</div>
 
-            <div class="container">
+<div class="skill-arrow">
+↗
+</div>
 
-                <div class="contact reveal">
+</div>
 
-                    <small>07 — CONTACT</small>
 
-                    <h2>
-                        Let's build something meaningful.
-                    </h2>
+</div>
 
-                    <p>
-                        Have an idea, opportunity or project?
-                        I'd be happy to connect.
-                    </p>
+</div>
 
-                    <div class="socials">
+</section>
 
-                        <a href="mailto:yourmail@gmail.com">
-                            Email
-                        </a>
 
-                        <a href="https://github.com/Shaktivelseena"
-                           target="_blank">
-                            GitHub
-                        </a>
 
-                        <a href="#"
-                           target="_blank">
-                            LinkedIn
-                        </a>
+<!-- =====================================================
+     RAILFLY
+===================================================== -->
 
-                    </div>
+<section id="railfly" class="railfly-section">
 
-                </div>
+<div class="container">
 
-            </div>
 
-        </section>
+<div class="section-top reveal">
 
-    </main>
+<div class="section-number">
+03 / FEATURED PROJECT
+</div>
 
+<div>
 
-    <!-- FOOTER -->
+<h2 class="section-title">
+The project that represents my vision.
+</h2>
 
-    <footer>
-        © 2026 Shaktivel. Designed & built with purpose.
-    </footer>
+<p class="section-description">
 
+RailFly is my train + flight journey platform concept,
+designed to make travel planning, tracking and journey
+management feel like one connected experience.
 
-    <script>
+</p>
 
-        /* MOBILE MENU */
+</div>
 
-        const menu = document.getElementById("menu");
-        const navLinks = document.getElementById("navLinks");
+</div>
 
-        menu.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
+
+
+<div class="railfly-container reveal">
+
+
+<div class="railfly-header">
+
+<div>
+
+<div class="railfly-title">
+
+Rail<span>Fly</span>
+
+</div>
+
+<p class="railfly-description">
+
+Plan a journey, search routes, track your trip and
+manage important travel information from one place.
+
+</p>
+
+</div>
+
+
+<div class="railfly-tag">
+TRAIN + FLIGHT PLATFORM
+</div>
+
+</div>
+
+
+
+<!-- REAL INTERACTIVE DEMO -->
+
+<div class="demo">
+
+
+<!-- DEMO HEADER -->
+
+<div class="demo-header">
+
+<div class="demo-brand">
+
+<div class="demo-logo">
+RF
+</div>
+
+RailFly
+
+</div>
+
+
+<div class="demo-status">
+SYSTEM ONLINE
+</div>
+
+</div>
+
+
+
+<!-- TRAIN / FLIGHT -->
+
+<div class="demo-tabs">
+
+<button
+class="demo-tab active"
+data-type="train"
+>
+🚆 Train
+</button>
+
+
+<button
+class="demo-tab"
+data-type="flight"
+>
+✈ Flight
+</button>
+
+</div>
+
+
+
+<!-- SEARCH -->
+
+<div class="demo-search">
+
+
+<div class="field">
+
+<label>From</label>
+
+<select id="fromCity">
+
+<option>Bengaluru</option>
+
+<option>Chennai</option>
+
+<option>Mumbai</option>
+
+<option>Delhi</option>
+
+<option>Hyderabad</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label>To</label>
+
+<select id="toCity">
+
+<option>Chennai</option>
+
+<option>Bengaluru</option>
+
+<option>Mumbai</option>
+
+<option>Delhi</option>
+
+<option>Hyderabad</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<label>Date</label>
+
+<input
+type="date"
+id="travelDate"
+>
+
+</div>
+
+
+
+<button
+class="search-btn"
+id="searchBtn"
+>
+Search
+</button>
+
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div class="demo-result" id="demoResult">
+
+
+<div class="result-head">
+
+<strong id="resultTitle">
+Recommended Journey
+</strong>
+
+<span class="cheapest">
+BEST OPTION
+</span>
+
+</div>
+
+
+
+<div class="trip-card">
+
+
+<div class="trip-route">
+
+
+<div class="trip-city">
+
+<strong id="resultFrom">
+BLR
+</strong>
+
+<small id="resultFromName">
+Bengaluru
+</small>
+
+</div>
+
+
+<div class="trip-line"></div>
+
+
+<div class="trip-city">
+
+<strong id="resultTo">
+MAA
+</strong>
+
+<small id="resultToName">
+Chennai
+</small>
+
+</div>
+
+
+</div>
+
+
+
+<div class="trip-details">
+
+
+<div class="detail">
+
+<small>Departure</small>
+
+<strong id="departure">
+06:30 AM
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<small>Arrival</small>
+
+<strong id="arrival">
+12:45 PM
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<small>Platform</small>
+
+<strong id="platform">
+04
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<small>Coach</small>
+
+<strong id="coach">
+B2
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<button
+class="book-btn"
+id="trackBtn"
+>
+Track Journey
+</button>
+
+
+</div>
+
+
+
+<div
+class="live-status"
+id="liveStatus"
+>
+● Journey is on schedule. Platform 04 confirmed.
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div class="section-number">
+04 / SELECTED WORK
+</div>
+
+<div>
+
+<h2 class="section-title">
+Things I've built while learning.
+</h2>
+
+<p class="section-description">
+
+Projects that helped me turn concepts into practical
+development experience.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="project-grid">
+
+
+<div class="project-card large reveal">
+
+<div class="project-number">
+01 / FEATURED
+</div>
+
+<h3>
+RailFly
+</h3>
+
+<p>
+
+A train + flight journey platform focused on
+smart travel planning, live tracking and
+passenger experience.
+
+</p>
+
+
+<div class="project-tech">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Python</span>
+<span>Flutter</span>
+
+</div>
+
+
+<a
+href="#railfly"
+class="project-link"
+>
+Explore Demo ↗
+</a>
+
+</div>
+
+
+
+<div class="project-card reveal">
+
+<div class="project-number">
+02 / WEB
+</div>
+
+<h3>
+Personal Portfolio
+</h3>
+
+<p>
+
+A responsive developer portfolio designed to
+showcase my skills, projects, certificates and
+development journey.
+
+</p>
+
+
+<div class="project-tech">
+
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+
+<a
+href="#"
+class="project-link"
+>
+Current Website ↗
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICATES
+===================================================== -->
+
+<section id="certificates">
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div class="section-number">
+05 / CERTIFICATES
+</div>
+
+<div>
+
+<h2 class="section-title">
+Proof of continuous learning.
+</h2>
+
+<p class="section-description">
+
+Courses and certifications that represent the skills
+I've developed along the way.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="certificate-grid">
+
+
+<div class="certificate reveal">
+
+<img
+src="assets/certificates/certificate1.jpg"
+alt="Certificate"
+>
+
+<div class="certificate-info">
+
+<h3>
+Certificate Name
+</h3>
+
+<p>
+Issuing Organization
+</p>
+
+<a
+href="assets/certificates/certificate1.pdf"
+target="_blank"
+>
+View Certificate ↗
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="certificate reveal">
+
+<img
+src="assets/certificates/certificate2.jpg"
+alt="Certificate"
+>
+
+<div class="certificate-info">
+
+<h3>
+Certificate Name
+</h3>
+
+<p>
+Issuing Organization
+</p>
+
+<a
+href="assets/certificates/certificate2.pdf"
+target="_blank"
+>
+View Certificate ↗
+</a>
+
+</div>
+
+</div>
+
+
+
+<div class="certificate reveal">
+
+<img
+src="assets/certificates/certificate3.jpg"
+alt="Certificate"
+>
+
+<div class="certificate-info">
+
+<h3>
+Certificate Name
+</h3>
+
+<p>
+Issuing Organization
+</p>
+
+<a
+href="assets/certificates/certificate3.pdf"
+target="_blank"
+>
+View Certificate ↗
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JOURNEY
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+
+<div class="section-top reveal">
+
+<div class="section-number">
+06 / JOURNEY
+</div>
+
+<div>
+
+<h2 class="section-title">
+Where I'm going next.
+</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="journey">
+
+
+<div class="journey-card reveal">
+
+<span>NOW</span>
+
+<h3>
+BCA Student
+</h3>
+
+<p>
+
+Building strong foundations in programming,
+software development, databases and
+computer science.
+
+</p>
+
+</div>
+
+
+
+<div class="journey-card reveal">
+
+<span>NEXT</span>
+
+<h3>
+Full Stack Developer
+</h3>
+
+<p>
+
+Building complete applications and gaining
+experience across frontend, backend,
+APIs and deployment.
+
+</p>
+
+</div>
+
+
+
+<div class="journey-card reveal">
+
+<span>FUTURE</span>
+
+<h3>
+Software Architect
+</h3>
+
+<p>
+
+Designing scalable, reliable and
+well-structured software systems.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+<div class="container">
+
+
+<div class="contact reveal">
+
+
+<div class="section-number">
+07 / CONTACT
+</div>
+
+
+<h2>
+
+Let's build
+<span>something.</span>
+
+</h2>
+
+
+<p>
+
+Have an idea, opportunity or project?
+Let's connect and create something meaningful.
+
+</p>
+
+
+<div class="socials">
+
+<a href="mailto:yourmail@gmail.com">
+Email ↗
+</a>
+
+<a
+href="https://github.com/Shaktivelseena"
+target="_blank"
+>
+GitHub ↗
+</a>
+
+<a
+href="#"
+target="_blank"
+>
+LinkedIn ↗
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<span>
+© 2026 Shaktivel
+</span>
+
+<span>
+Designed & built with purpose.
+</span>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+document.getElementById("menu");
+
+const navLinks =
+document.getElementById("navLinks");
+
+
+menu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+
+/* =========================================================
+   SCROLL ANIMATION
+========================================================= */
+
+const observer =
+new IntersectionObserver(
+
+(entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+
+/* =========================================================
+   RAILFLY DEMO
+========================================================= */
+
+const demoTabs =
+document.querySelectorAll(".demo-tab");
+
+let journeyType = "train";
+
+
+/* TRAIN / FLIGHT SWITCH */
+
+demoTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        demoTabs.forEach(item => {
+
+            item.classList.remove("active");
+
         });
 
+        tab.classList.add("active");
 
-        /* CLOSE MENU */
+        journeyType =
+        tab.dataset.type;
 
-        document.querySelectorAll(".nav-links a").forEach(link => {
+        updateDemo();
 
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-            });
+    });
 
-        });
+});
 
 
-        /* SCROLL ANIMATION */
 
-        const observer = new IntersectionObserver(
-            entries => {
+/* CITY DATA */
 
-                entries.forEach(entry => {
+const cityCodes = {
 
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    }
+    Bengaluru:"BLR",
 
-                });
+    Chennai:"MAA",
 
-            },
-            {
-                threshold: 0.12
-            }
+    Mumbai:"BOM",
+
+    Delhi:"DEL",
+
+    Hyderabad:"HYD"
+
+};
+
+
+
+/* UPDATE DEMO */
+
+function updateDemo(){
+
+    const title =
+    document.getElementById("resultTitle");
+
+    const platform =
+    document.getElementById("platform");
+
+    const coach =
+    document.getElementById("coach");
+
+    const departure =
+    document.getElementById("departure");
+
+    const arrival =
+    document.getElementById("arrival");
+
+
+    if(journeyType === "flight"){
+
+        title.textContent =
+        "Recommended Flight";
+
+        platform.textContent =
+        "Gate 18";
+
+        coach.textContent =
+        "6E 421";
+
+        departure.textContent =
+        "08:10 AM";
+
+        arrival.textContent =
+        "09:20 AM";
+
+    }
+
+    else{
+
+        title.textContent =
+        "Recommended Train";
+
+        platform.textContent =
+        "04";
+
+        coach.textContent =
+        "B2";
+
+        departure.textContent =
+        "06:30 AM";
+
+        arrival.textContent =
+        "12:45 PM";
+
+    }
+
+}
+
+
+
+/* SEARCH */
+
+const searchBtn =
+document.getElementById("searchBtn");
+
+searchBtn.addEventListener("click", () => {
+
+
+    const from =
+    document.getElementById("fromCity").value;
+
+
+    const to =
+    document.getElementById("toCity").value;
+
+
+    if(from === to){
+
+        alert(
+        "Please select different departure and destination cities."
         );
 
+        return;
 
-        document.querySelectorAll(".reveal").forEach(element => {
-            observer.observe(element);
-        });
+    }
 
-    </script>
+
+    document
+    .getElementById("resultFrom")
+    .textContent =
+    cityCodes[from];
+
+
+    document
+    .getElementById("resultTo")
+    .textContent =
+    cityCodes[to];
+
+
+    document
+    .getElementById("resultFromName")
+    .textContent =
+    from;
+
+
+    document
+    .getElementById("resultToName")
+    .textContent =
+    to;
+
+
+    updateDemo();
+
+
+    document
+    .getElementById("demoResult")
+    .classList.add("show");
+
+
+    document
+    .getElementById("liveStatus")
+    .classList.remove("show");
+
+
+});
+
+
+
+/* TRACK JOURNEY */
+
+document
+.getElementById("trackBtn")
+.addEventListener("click", () => {
+
+
+    const status =
+    document.getElementById("liveStatus");
+
+
+    status.classList.add("show");
+
+
+    status.textContent =
+
+    journeyType === "train"
+
+    ?
+
+    "● Train is on schedule. Platform 04 confirmed. Coach B2 ready."
+
+    :
+
+    "● Flight is on schedule. Gate 18 confirmed. Boarding begins soon.";
+
+
+});
+
+
+</script>
+
 
 </body>
 </html>
