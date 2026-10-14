@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,2270 +8,947 @@
 
 <title>Shaktivel | Full Stack Developer</title>
 
-<!-- ================= FONT ================= -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-
 <style>
 
-/* =====================================================
-   ROOT
-===================================================== */
+/* ================= ROOT ================= */
 
 :root{
-
     --bg:#f3f0e9;
-
-    --white:#ffffff;
-
+    --white:#fff;
     --dark:#111318;
-
-    --dark2:#181b21;
-
     --text:#15171b;
-
     --muted:#6d737c;
-
     --blue:#246bfe;
-
-    --blue-light:#e8efff;
-
     --green:#159b68;
-
     --border:#ddd9d0;
-
-    --radius:18px;
-
 }
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 html{
-
     scroll-behavior:smooth;
-
 }
-
 
 body{
-
     background:var(--bg);
-
     color:var(--text);
-
     font-family:"Manrope",sans-serif;
-
     line-height:1.6;
-
-    overflow-x:hidden;
-
 }
-
 
 a{
-
     color:inherit;
-
     text-decoration:none;
-
 }
-
-
-button,
-input,
-select{
-
-    font-family:inherit;
-
-}
-
 
 .container{
-
-    width:min(1180px,90%);
-
+    width:min(1150px,90%);
     margin:auto;
+}
 
+button{
+    font-family:inherit;
 }
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* ================= NAVBAR ================= */
 
 header{
-
     position:fixed;
-
     top:0;
-
-    left:0;
-
     width:100%;
-
     z-index:1000;
-
-    background:rgba(243,240,233,.88);
-
-    backdrop-filter:blur(18px);
-
+    background:rgba(243,240,233,.9);
+    backdrop-filter:blur(15px);
     border-bottom:1px solid rgba(0,0,0,.07);
-
 }
-
 
 nav{
-
-    height:78px;
-
+    height:75px;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
 }
-
 
 .logo{
-
-    font-family:"Sora",sans-serif;
-
+    font-family:"Sora";
     font-size:25px;
-
     font-weight:800;
-
-    letter-spacing:-1px;
-
 }
-
 
 .logo span{
-
     color:var(--blue);
-
 }
-
 
 .nav-links{
-
     display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
+    gap:28px;
     list-style:none;
-
 }
-
 
 .nav-links a{
-
-    color:#646b74;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    transition:.3s;
-
+    font-size:11px;
+    font-weight:800;
+    color:#686e76;
 }
-
 
 .nav-links a:hover{
-
     color:var(--blue);
-
 }
-
 
 .menu{
-
     display:none;
-
     font-size:25px;
-
     cursor:pointer;
-
 }
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 .hero{
-
     min-height:100vh;
-
     padding-top:120px;
-
     display:grid;
-
     grid-template-columns:1.1fr .9fr;
-
     align-items:center;
-
     gap:70px;
-
 }
 
-
-.availability{
-
+.available{
     display:inline-flex;
-
     align-items:center;
-
     gap:8px;
-
     background:white;
-
     border:1px solid var(--border);
-
     padding:8px 13px;
-
     border-radius:50px;
-
-    font-size:10px;
-
+    font-size:9px;
     font-weight:800;
-
-    letter-spacing:.5px;
-
 }
 
-
-.availability::before{
-
+.available::before{
     content:"";
-
     width:7px;
-
     height:7px;
-
-    border-radius:50%;
-
     background:var(--green);
-
+    border-radius:50%;
 }
-
 
 .hero h1{
-
-    font-family:"Sora",sans-serif;
-
-    font-size:clamp(55px,7vw,94px);
-
-    line-height:.97;
-
+    font-family:"Sora";
+    font-size:clamp(55px,7vw,90px);
+    line-height:.98;
     letter-spacing:-5px;
-
-    margin:27px 0;
-
+    margin:25px 0;
 }
-
 
 .hero h1 span{
-
     color:var(--blue);
-
 }
-
 
 .hero-text{
-
-    max-width:620px;
-
+    max-width:600px;
     color:var(--muted);
-
     font-size:15px;
-
     line-height:1.9;
-
 }
 
-
-.hero-buttons{
-
+.buttons{
     display:flex;
-
     gap:12px;
-
     margin-top:30px;
-
     flex-wrap:wrap;
-
 }
-
 
 .btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
+    display:inline-block;
     padding:13px 19px;
-
     border-radius:8px;
-
     border:1px solid var(--border);
-
     background:white;
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:800;
-
-    transition:.3s;
-
 }
-
-
-.btn-primary{
-
-    color:white;
-
-    background:var(--dark);
-
-    border-color:var(--dark);
-
-}
-
 
 .btn:hover{
+    transform:translateY(-2px);
+}
 
-    transform:translateY(-3px);
-
+.primary{
+    background:var(--dark);
+    color:white;
+    border-color:var(--dark);
 }
 
 
-/* =====================================================
-   PROFILE
-===================================================== */
+/* ================= PROFILE PHOTO ================= */
 
 .hero-photo{
-
     display:flex;
-
     justify-content:center;
-
-    position:relative;
-
 }
-
 
 .photo-box{
-
-    width:390px;
-
-    height:500px;
-
+    width:360px;
+    height:470px;
     position:relative;
-
 }
-
 
 .photo-box::before{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     border:1px solid var(--blue);
-
-    border-radius:190px 190px 18px 18px;
-
-    transform:translate(17px,17px);
-
+    border-radius:180px 180px 18px 18px;
+    transform:translate(16px,16px);
 }
-
 
 .photo-box img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
-    border-radius:190px 190px 18px 18px;
-
+    border-radius:180px 180px 18px 18px;
     position:relative;
-
     z-index:2;
-
     background:#ddd;
-
 }
-
 
 .photo-card{
-
     position:absolute;
-
-    z-index:4;
-
-    left:-35px;
-
+    z-index:5;
+    left:-30px;
     bottom:25px;
-
     background:var(--dark);
-
     color:white;
-
-    padding:16px 20px;
-
+    padding:15px 19px;
     border-radius:10px;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
-
 }
-
 
 .photo-card strong{
-
     display:block;
-
     font-family:"Sora";
-
     font-size:13px;
-
 }
-
 
 .photo-card small{
-
     color:#aab0b8;
-
     font-size:9px;
-
 }
 
 
-/* =====================================================
-   MARQUEE
-===================================================== */
+/* ================= MARQUEE ================= */
 
 .marquee{
-
     background:var(--dark);
-
     color:white;
-
     transform:rotate(-1deg);
-
     width:104%;
-
     margin-left:-2%;
-
     overflow:hidden;
-
     white-space:nowrap;
-
 }
-
 
 .marquee-track{
-
     display:inline-flex;
-
     gap:45px;
-
-    padding:18px 0;
-
+    padding:17px 0;
     animation:move 25s linear infinite;
-
 }
-
 
 .marquee span{
-
     font-family:"Sora";
-
-    font-size:12px;
-
+    font-size:11px;
     font-weight:700;
-
-    letter-spacing:1px;
-
 }
-
 
 .marquee span::after{
-
     content:"✦";
-
-    color:#6f9bff;
-
+    color:#7099ff;
     margin-left:45px;
-
 }
-
 
 @keyframes move{
-
-    from{
-
-        transform:translateX(0);
-
-    }
-
-    to{
-
-        transform:translateX(-50%);
-
-    }
-
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
 }
 
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* ================= SECTIONS ================= */
 
 section{
-
-    padding:130px 0;
-
+    padding:120px 0;
 }
-
 
 .section-top{
-
     display:grid;
-
-    grid-template-columns:180px 1fr;
-
-    gap:60px;
-
-    margin-bottom:70px;
-
+    grid-template-columns:170px 1fr;
+    gap:55px;
+    margin-bottom:60px;
 }
 
-
-.section-number{
-
+.number{
     color:var(--blue);
-
     font-size:10px;
-
     font-weight:800;
-
     letter-spacing:1.5px;
-
 }
-
 
 .section-title{
-
-    font-family:"Sora",sans-serif;
-
-    font-size:clamp(38px,5vw,67px);
-
+    font-family:"Sora";
+    font-size:clamp(38px,5vw,65px);
     line-height:1.05;
-
     letter-spacing:-3px;
-
 }
 
-
-.section-description{
-
+.description{
     color:var(--muted);
-
     max-width:650px;
-
     margin-top:18px;
-
     font-size:14px;
-
     line-height:1.9;
-
 }
 
 
-/* =====================================================
-   ABOUT
-===================================================== */
+/* ================= ABOUT ================= */
 
-.about-grid{
-
+.about{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:80px;
-
 }
-
 
 .about-big{
-
     font-family:"Sora";
-
-    font-size:36px;
-
+    font-size:34px;
     line-height:1.35;
-
-    letter-spacing:-1.5px;
-
+    letter-spacing:-1px;
 }
-
 
 .about-big span{
-
     color:var(--blue);
-
 }
-
 
 .about-text{
-
     color:var(--muted);
-
     font-size:14px;
-
     line-height:1.9;
-
 }
-
 
 .about-text p{
-
     margin-bottom:18px;
-
 }
-
 
 .stats{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
-    margin-top:35px;
-
+    margin-top:30px;
     border-top:1px solid var(--border);
-
 }
-
 
 .stat{
-
-    padding:20px 0;
-
+    padding:18px 0;
     border-bottom:1px solid var(--border);
-
 }
-
 
 .stat strong{
-
     display:block;
-
     font-family:"Sora";
-
-    font-size:28px;
-
+    font-size:27px;
 }
-
 
 .stat span{
-
     color:var(--muted);
-
     font-size:10px;
-
 }
 
 
-/* =====================================================
-   SKILLS
-===================================================== */
+/* ================= SKILLS ================= */
 
-.skill-list{
-
+.skills{
     border-top:1px solid var(--border);
-
 }
-
 
 .skill{
-
     display:grid;
-
     grid-template-columns:70px 1fr auto;
-
     align-items:center;
-
-    padding:31px 15px;
-
+    padding:28px 15px;
     border-bottom:1px solid var(--border);
-
     cursor:pointer;
-
-    transition:.35s;
-
+    transition:.3s;
 }
-
 
 .skill:hover{
-
     background:white;
-
-    padding-left:28px;
-
-    padding-right:28px;
-
+    padding-left:25px;
 }
-
 
 .skill-number{
-
     color:#999fa7;
-
     font-size:10px;
-
     font-weight:800;
-
 }
-
 
 .skill h3{
-
     font-family:"Sora";
-
-    font-size:23px;
-
-    letter-spacing:-.7px;
-
+    font-size:22px;
 }
-
 
 .skill p{
-
     color:var(--muted);
-
     font-size:11px;
-
-    margin-top:4px;
-
 }
 
-
-.skill-arrow{
-
-    font-size:22px;
-
-    transition:.3s;
-
-}
-
-
-.skill:hover .skill-arrow{
-
-    color:var(--blue);
-
-    transform:translate(5px,-5px);
-
-}
-
-
-/* =====================================================
-   SKILL MODAL
-===================================================== */
-
-.skill-modal{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(8,10,13,.75);
-
-    backdrop-filter:blur(12px);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:25px;
-
-    z-index:3000;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.3s;
-
-}
-
-
-.skill-modal.active{
-
-    opacity:1;
-
-    visibility:visible;
-
-}
-
-
-.modal-box{
-
-    width:min(650px,100%);
-
-    max-height:90vh;
-
-    overflow:auto;
-
-    background:#f7f5ef;
-
-    border-radius:22px;
-
-    padding:45px;
-
-    position:relative;
-
-    transform:translateY(30px) scale(.96);
-
-    transition:.35s;
-
-}
-
-
-.skill-modal.active .modal-box{
-
-    transform:translateY(0) scale(1);
-
-}
-
-
-.modal-close{
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-    width:38px;
-
-    height:38px;
-
-    border:1px solid var(--border);
-
-    background:white;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-}
-
-
-.modal-number{
-
-    color:var(--blue);
-
-    font-size:10px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-}
-
-
-.modal-icon{
-
-    width:60px;
-
-    height:60px;
-
-    margin:20px 0;
-
-    border-radius:14px;
-
-    background:var(--blue-light);
-
-    color:var(--blue);
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:25px;
-
-}
-
-
-.modal-box h2{
-
-    font-family:"Sora";
-
-    font-size:36px;
-
-    line-height:1.1;
-
-    letter-spacing:-2px;
-
-}
-
-
-.modal-description{
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.8;
-
-    margin:15px 0 25px;
-
-}
-
-
-.modal-tech{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    padding-bottom:25px;
-
-    border-bottom:1px solid var(--border);
-
-}
-
-
-.modal-tech span{
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    padding:7px 10px;
-
-    border-radius:6px;
-
-    font-size:9px;
-
-    font-weight:800;
-
-}
-
-
-.modal-section{
-
-    margin-top:25px;
-
-}
-
-
-.modal-section label{
-
-    display:block;
-
-    color:var(--blue);
-
-    font-size:9px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    margin-bottom:7px;
-
-}
-
-
-.modal-section p{
-
-    color:var(--muted);
-
-    font-size:12px;
-
-    line-height:1.8;
-
-}
-
-
-/* =====================================================
-   RAILFLY
-===================================================== */
-
-.railfly-section{
-
-    background:var(--dark);
-
-    color:white;
-
-}
-
-
-.railfly-section .section-description{
-
-    color:#8e969f;
-
-}
-
-
-.railfly{
-
-    background:#191d23;
-
-    border:1px solid #2d333b;
-
-    border-radius:25px;
-
-    padding:55px;
-
-    overflow:hidden;
-
-}
-
-
-.railfly-head{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:30px;
-
-    margin-bottom:45px;
-
-}
-
-
-.railfly-title{
-
-    font-family:"Sora";
-
-    font-size:clamp(60px,8vw,100px);
-
-    line-height:.9;
-
-    letter-spacing:-6px;
-
-}
-
-
-.railfly-title span{
-
-    color:#7099ff;
-
-}
-
-
-.railfly-tag{
-
-    padding:8px 13px;
-
-    border:1px solid #343b44;
-
-    border-radius:50px;
-
-    color:#9aa1aa;
-
-    font-size:9px;
-
-    font-weight:800;
-
-}
-
-
-/* =====================================================
-   RAILFLY DEMO
-===================================================== */
-
-.demo{
-
-    background:#f7f8fa;
-
-    color:#15171b;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:0 30px 70px rgba(0,0,0,.3);
-
-}
-
-
-.demo-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 25px;
-
-    border-bottom:1px solid #e2e5e8;
-
-}
-
-
-.demo-logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:9px;
-
-    font-family:"Sora";
-
-    font-size:13px;
-
-    font-weight:800;
-
-}
-
-
-.demo-logo-box{
-
-    width:31px;
-
-    height:31px;
-
-    border-radius:8px;
-
-    background:#246bfe;
-
-    color:white;
-
-    display:grid;
-
-    place-items:center;
-
-    font-size:10px;
-
-}
-
-
-.online{
-
-    color:#168358;
-
-    font-size:9px;
-
-    font-weight:800;
-
-}
-
-
-.online::before{
-
-    content:"";
-
-    display:inline-block;
-
-    width:6px;
-
-    height:6px;
-
-    background:#159b68;
-
-    border-radius:50%;
-
-    margin-right:5px;
-
-}
-
-
-/* TABS */
-
-.demo-tabs{
-
-    display:flex;
-
-    gap:7px;
-
-    background:#eef0f3;
-
-    padding:17px 25px;
-
-}
-
-
-.demo-tab{
-
-    border:0;
-
-    background:transparent;
-
-    padding:9px 16px;
-
-    border-radius:7px;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    color:#747c85;
-
-    cursor:pointer;
-
-}
-
-
-.demo-tab.active{
-
-    background:white;
-
-    color:#246bfe;
-
-    box-shadow:0 3px 10px rgba(0,0,0,.06);
-
-}
-
-
-/* SEARCH */
-
-.demo-search{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr 170px 110px;
-
-    gap:10px;
-
-    padding:25px;
-
-    border-bottom:1px solid #e2e5e8;
-
-}
-
-
-.demo-field{
-
-    background:#f0f2f4;
-
-    border:1px solid #e0e3e6;
-
-    padding:10px 13px;
-
-    border-radius:8px;
-
-}
-
-
-.demo-field label{
-
-    display:block;
-
-    color:#8b929a;
-
-    font-size:8px;
-
-    font-weight:800;
-
-    text-transform:uppercase;
-
-    margin-bottom:3px;
-
-}
-
-
-.demo-field select,
-.demo-field input{
-
-    width:100%;
-
-    background:transparent;
-
-    border:0;
-
-    outline:0;
-
-    color:#171a1e;
-
-    font-size:11px;
-
-    font-weight:700;
-
-}
-
-
-.search-btn{
-
-    border:0;
-
-    background:#246bfe;
-
-    color:white;
-
-    border-radius:8px;
-
-    font-size:10px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-.search-btn:hover{
-
-    background:#0e56dc;
-
-}
-
-
-/* RESULT */
-
-.result{
-
-    display:none;
-
-    padding:25px;
-
-}
-
-
-.result.show{
-
-    display:block;
-
-}
-
-
-.result-heading{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:18px;
-
-}
-
-
-.result-heading strong{
-
-    font-family:"Sora";
-
-    font-size:14px;
-
-}
-
-
-.best{
-
-    color:#168358;
-
-    background:#e8f7f0;
-
-    padding:5px 9px;
-
-    border-radius:5px;
-
-    font-size:8px;
-
-    font-weight:800;
-
-}
-
-
-.trip{
-
-    display:grid;
-
-    grid-template-columns:1.3fr 1fr 120px;
-
-    align-items:center;
-
-    gap:20px;
-
-    border:1px solid #e0e3e6;
-
-    padding:20px;
-
-    border-radius:13px;
-
-}
-
-
-.route{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-
-.city strong{
-
-    font-family:"Sora";
-
+.arrow{
     font-size:21px;
-
 }
 
-
-.city small{
-
-    display:block;
-
-    color:#8a929a;
-
-    font-size:8px;
-
-}
-
-
-.route-line{
-
-    flex:1;
-
-    height:1px;
-
-    background:#bcc2c8;
-
-    position:relative;
-
-}
-
-
-.route-line::after{
-
-    content:"✦";
-
-    position:absolute;
-
-    left:50%;
-
-    top:-9px;
-
-    color:#246bfe;
-
-}
-
-
-.trip-info{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:7px;
-
-}
-
-
-.info{
-
-    background:#f1f3f5;
-
-    padding:8px;
-
-    border-radius:6px;
-
-}
-
-
-.info small{
-
-    display:block;
-
-    color:#8b9299;
-
-    font-size:7px;
-
-}
-
-
-.info strong{
-
-    font-size:9px;
-
-}
-
-
-.track-btn{
-
-    border:0;
-
-    background:#15171b;
-
-    color:white;
-
-    padding:11px;
-
-    border-radius:7px;
-
-    font-size:9px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-}
-
-
-.live{
-
-    display:none;
-
-    margin-top:12px;
-
-    padding:13px;
-
-    background:#eaf7f1;
-
-    color:#1c7654;
-
-    border-radius:8px;
-
-    font-size:10px;
-
-    font-weight:700;
-
-}
-
-
-.live.show{
-
-    display:block;
-
-}
-
-
-/* =====================================================
-   PROJECTS
-===================================================== */
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:1.4fr .6fr;
-
-    gap:18px;
-
-}
-
-
-.project-card{
-
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
-
-    padding:35px;
-
-    min-height:340px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    transition:.35s;
-
-}
-
-
-.project-card:hover{
-
-    transform:translateY(-7px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.07);
-
-}
-
-
-.project-card.featured{
-
-    min-height:450px;
-
-    background:var(--dark);
-
-    color:white;
-
-}
-
-
-.project-number{
-
+.skill:hover .arrow{
     color:var(--blue);
-
-    font-size:9px;
-
-    font-weight:800;
-
 }
 
 
-.project-card h3{
-
-    font-family:"Sora";
-
-    font-size:34px;
-
-    letter-spacing:-1.5px;
-
-    margin-top:40px;
-
-}
-
-
-.project-card p{
-
-    color:var(--muted);
-
-    font-size:13px;
-
-    line-height:1.8;
-
-    max-width:550px;
-
-    margin-top:13px;
-
-}
-
-
-.featured p{
-
-    color:#9299a2;
-
-}
-
-
-.tech{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-top:25px;
-
-}
-
-
-.tech span{
-
-    background:#f0f2f4;
-
-    color:#69717a;
-
-    padding:6px 9px;
-
-    border-radius:5px;
-
-    font-size:8px;
-
-    font-weight:800;
-
-}
-
-
-.featured .tech span{
-
-    background:#252a31;
-
-    color:#9ca4ad;
-
-}
-
-
-.project-link{
-
-    position:absolute;
-
-    bottom:30px;
-
-    color:var(--blue);
-
-    font-size:10px;
-
-    font-weight:800;
-
-}
-
-
-/* =====================================================
-   CERTIFICATES
-===================================================== */
+/* ================= CERTIFICATES ================= */
 
 .certificate-grid{
-
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
-
 }
-
 
 .certificate{
-
     background:white;
-
     border:1px solid var(--border);
-
     border-radius:16px;
-
     overflow:hidden;
-
-    transition:.35s;
-
+    transition:.3s;
 }
-
 
 .certificate:hover{
-
     transform:translateY(-6px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.07);
-
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
-
 
 .certificate img{
-
     display:block;
-
     width:100%;
-
     height:270px;
-
-    object-fit:cover;
-
+    object-fit:contain;
+    background:#f5f5f5;
 }
-
 
 .certificate-info{
-
-    padding:23px;
-
+    padding:22px;
 }
-
 
 .certificate-info h3{
-
     font-family:"Sora";
-
     font-size:17px;
-
 }
-
 
 .certificate-info p{
-
     color:var(--muted);
-
     font-size:11px;
-
-    margin:4px 0 15px;
-
+    margin:5px 0 15px;
 }
-
 
 .certificate-info a{
-
     color:var(--blue);
-
     font-size:10px;
-
     font-weight:800;
-
 }
 
 
-/* =====================================================
-   JOURNEY
-===================================================== */
+/* ================= RAILFLY DEMO ================= */
+
+.demo-section{
+    background:var(--dark);
+    color:white;
+}
+
+.demo-section .description{
+    color:#9198a1;
+}
+
+.demo-box{
+    background:#f7f8fa;
+    color:#15171b;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+.demo-heading{
+    padding:28px;
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid #ddd;
+}
+
+.demo-logo{
+    font-family:"Sora";
+    font-weight:800;
+}
+
+.demo-logo span{
+    color:var(--blue);
+}
+
+.demo-note{
+    color:#159b68;
+    font-size:9px;
+    font-weight:800;
+}
+
+.tabs{
+    display:flex;
+    gap:7px;
+    padding:17px 25px;
+    background:#eef0f3;
+}
+
+.tab{
+    border:0;
+    padding:9px 15px;
+    border-radius:7px;
+    background:transparent;
+    cursor:pointer;
+    font-size:10px;
+    font-weight:800;
+}
+
+.tab.active{
+    background:white;
+    color:var(--blue);
+}
+
+.search{
+    display:grid;
+    grid-template-columns:1fr 1fr 160px 100px;
+    gap:10px;
+    padding:25px;
+}
+
+.field{
+    background:#eef0f2;
+    border:1px solid #dddfe2;
+    padding:10px 12px;
+    border-radius:8px;
+}
+
+.field label{
+    display:block;
+    color:#858c94;
+    font-size:8px;
+    font-weight:800;
+    margin-bottom:3px;
+}
+
+.field select{
+    width:100%;
+    border:0;
+    outline:0;
+    background:transparent;
+    font-size:11px;
+    font-weight:700;
+}
+
+.search-btn{
+    border:0;
+    border-radius:8px;
+    background:var(--blue);
+    color:white;
+    font-weight:800;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.result{
+    display:none;
+    padding:25px;
+    border-top:1px solid #ddd;
+}
+
+.result.show{
+    display:block;
+}
+
+.trip{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 110px;
+    gap:20px;
+    align-items:center;
+    border:1px solid #ddd;
+    padding:20px;
+    border-radius:12px;
+}
+
+.route{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.city strong{
+    font-family:"Sora";
+    font-size:20px;
+}
+
+.city small{
+    display:block;
+    color:#858c94;
+    font-size:8px;
+}
+
+.route-line{
+    flex:1;
+    height:1px;
+    background:#bbb;
+}
+
+.trip-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+}
+
+.info{
+    background:#f0f2f4;
+    padding:8px;
+    border-radius:6px;
+}
+
+.info small{
+    display:block;
+    color:#858c94;
+    font-size:7px;
+}
+
+.info strong{
+    font-size:9px;
+}
+
+.track{
+    border:0;
+    padding:11px;
+    border-radius:7px;
+    background:#15171b;
+    color:white;
+    font-size:9px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.status{
+    display:none;
+    margin-top:12px;
+    padding:13px;
+    background:#eaf7f1;
+    color:#197653;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:700;
+}
+
+.status.show{
+    display:block;
+}
+
+
+/* ================= JOURNEY ================= */
 
 .journey{
-
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:18px;
-
 }
-
 
 .journey-card{
-
     background:white;
-
     border:1px solid var(--border);
-
     border-radius:16px;
-
     padding:30px;
-
 }
-
 
 .journey-card span{
-
     color:var(--blue);
-
     font-size:9px;
-
     font-weight:800;
-
-    letter-spacing:1px;
-
 }
-
 
 .journey-card h3{
-
     font-family:"Sora";
-
     font-size:21px;
-
-    margin:17px 0 9px;
-
+    margin:15px 0 8px;
 }
-
 
 .journey-card p{
-
     color:var(--muted);
-
     font-size:12px;
-
     line-height:1.8;
-
 }
 
 
-/* =====================================================
-   CONTACT
-===================================================== */
+/* ================= CONTACT ================= */
 
 .contact{
-
     background:var(--dark);
-
     color:white;
-
     border-radius:25px;
-
-    padding:90px;
-
+    padding:80px;
     text-align:center;
-
 }
-
-
-.contact .section-number{
-
-    color:#7099ff;
-
-}
-
 
 .contact h2{
-
     font-family:"Sora";
-
-    font-size:clamp(48px,7vw,88px);
-
+    font-size:clamp(45px,7vw,80px);
     line-height:1;
-
-    letter-spacing:-5px;
-
-    margin-top:20px;
-
+    letter-spacing:-4px;
+    margin-top:18px;
 }
-
 
 .contact h2 span{
-
     color:#7099ff;
-
 }
-
 
 .contact p{
-
     max-width:520px;
-
-    margin:22px auto 30px;
-
+    margin:20px auto 30px;
     color:#8e969f;
-
     font-size:13px;
-
 }
-
 
 .socials{
-
     display:flex;
-
     justify-content:center;
-
-    gap:9px;
-
+    gap:10px;
     flex-wrap:wrap;
-
 }
-
 
 .socials a{
-
     border:1px solid #30363e;
-
     padding:11px 16px;
-
     border-radius:7px;
-
     font-size:10px;
-
     font-weight:700;
-
-    transition:.3s;
-
 }
-
 
 .socials a:hover{
-
     color:#7099ff;
-
     border-color:#7099ff;
-
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 footer{
-
     padding:30px 0;
-
-    color:#7b828a;
-
+    color:#777e87;
     font-size:9px;
-
 }
 
-
-.footer-inner{
-
+.footer{
     display:flex;
-
     justify-content:space-between;
-
 }
 
 
-/* =====================================================
-   REVEAL
-===================================================== */
+/* ================= MODAL ================= */
 
-.reveal{
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:2000;
+}
 
-    opacity:0;
+.modal.show{
+    display:flex;
+}
 
-    transform:translateY(25px);
+.modal-box{
+    width:min(600px,100%);
+    background:#f7f5ef;
+    padding:40px;
+    border-radius:20px;
+    position:relative;
+}
 
-    transition:.8s ease;
+.close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:35px;
+    height:35px;
+    border:1px solid var(--border);
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:18px;
+}
 
+.modal-number{
+    color:var(--blue);
+    font-size:10px;
+    font-weight:800;
+}
+
+.modal-box h2{
+    font-family:"Sora";
+    font-size:32px;
+    margin:15px 0;
+}
+
+.modal-box p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.modal-tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:20px;
+}
+
+.modal-tech span{
+    background:white;
+    border:1px solid var(--border);
+    padding:7px 10px;
+    border-radius:6px;
+    font-size:9px;
+    font-weight:800;
 }
 
 
-.reveal.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
     .nav-links{
-
         display:none;
-
         position:absolute;
-
-        top:78px;
-
+        top:75px;
         left:0;
-
         width:100%;
-
         padding:25px;
-
         flex-direction:column;
-
         background:var(--bg);
-
-        border-bottom:1px solid var(--border);
-
     }
-
 
     .nav-links.active{
-
         display:flex;
-
     }
-
 
     .menu{
-
         display:block;
-
     }
-
 
     .hero{
-
         grid-template-columns:1fr;
-
         text-align:center;
-
     }
-
 
     .hero-text{
-
         margin:auto;
-
     }
 
-
-    .hero-buttons{
-
+    .buttons{
         justify-content:center;
-
     }
-
 
     .hero-photo{
-
         margin-top:30px;
-
     }
-
 
     .section-top{
-
         grid-template-columns:1fr;
-
-        gap:18px;
-
+        gap:15px;
     }
 
-
-    .about-grid{
-
+    .about{
         grid-template-columns:1fr;
-
-        gap:45px;
-
+        gap:40px;
     }
 
-
-    .project-grid{
-
+    .certificate-grid{
         grid-template-columns:1fr;
-
     }
-
-
-    .trip{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .demo-search{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
 
     .journey{
-
         grid-template-columns:1fr;
-
     }
 
+    .search{
+        grid-template-columns:1fr 1fr;
+    }
 
+    .trip{
+        grid-template-columns:1fr;
+    }
 }
-
 
 @media(max-width:600px){
 
     section{
-
-        padding:90px 0;
-
+        padding:85px 0;
     }
-
 
     .hero h1{
-
-        font-size:52px;
-
+        font-size:50px;
         letter-spacing:-3px;
-
     }
-
 
     .photo-box{
-
-        width:280px;
-
-        height:370px;
-
+        width:275px;
+        height:365px;
     }
-
 
     .photo-card{
-
         left:-10px;
-
     }
 
-
-    .railfly{
-
-        padding:25px;
-
-    }
-
-
-    .railfly-head{
-
-        display:block;
-
-    }
-
-
-    .railfly-tag{
-
-        display:inline-block;
-
-        margin-top:20px;
-
-    }
-
-
-    .railfly-title{
-
-        font-size:60px;
-
-    }
-
-
-    .demo-search{
-
+    .search{
         grid-template-columns:1fr;
-
     }
-
-
-    .certificate-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
 
     .contact{
-
-        padding:60px 25px;
-
+        padding:55px 20px;
     }
-
 
     .contact h2{
-
-        font-size:50px;
-
+        font-size:48px;
     }
 
-
-    .footer-inner{
-
+    .footer{
         display:block;
-
         text-align:center;
-
     }
-
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+<!-- ================= NAVIGATION ================= -->
 
 <header>
 
@@ -2282,28 +960,18 @@ footer{
 S<span>.</span>
 </a>
 
-
 <ul class="nav-links" id="navLinks">
 
 <li><a href="#about">About</a></li>
-
 <li><a href="#skills">Skills</a></li>
-
-<li><a href="#railfly">RailFly</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
 <li><a href="#certificates">Certificates</a></li>
-
+<li><a href="#demo">Demo</a></li>
+<li><a href="#journey">Journey</a></li>
 <li><a href="#contact">Contact</a></li>
 
 </ul>
 
-
-<div class="menu" id="menu">
-☰
-</div>
-
+<div class="menu" id="menu">☰</div>
 
 </nav>
 
@@ -2312,53 +980,37 @@ S<span>.</span>
 </header>
 
 
-
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero container">
 
+<div>
 
-<div class="reveal">
-
-<div class="availability">
+<div class="available">
 AVAILABLE FOR OPPORTUNITIES
 </div>
 
-
 <h1>
-
-Building
-<span>digital</span>
-experiences.
-
+Hi, I'm
+<span>Shaktivel.</span>
 </h1>
-
 
 <p class="hero-text">
 
-I'm Shaktivel — a BCA student and aspiring software
-architect focused on full-stack development, product
-thinking and building useful digital experiences.
+I'm a BCA student and aspiring software architect
+interested in full-stack development, web technologies,
+cloud computing, cybersecurity and building useful
+digital experiences.
 
 </p>
 
+<div class="buttons">
 
-<div class="hero-buttons">
-
-<a
-href="#railfly"
-class="btn btn-primary"
->
-Explore RailFly →
+<a href="#about" class="btn primary">
+About Me →
 </a>
 
-
-<a
-href="#contact"
-class="btn"
->
+<a href="#contact" class="btn">
 Let's Connect
 </a>
 
@@ -2367,23 +1019,20 @@ Let's Connect
 </div>
 
 
-
-<div class="hero-photo reveal">
+<div class="hero-photo">
 
 <div class="photo-box">
 
 <img
 src="assets/profile photo.png"
-alt="Shaktivel"
->
-
+alt="Shaktivel">
 
 <div class="photo-card">
 
 <strong>SHAKTIVEL</strong>
 
 <small>
-FULL STACK DEVELOPER
+BCA STUDENT • DEVELOPER
 </small>
 
 </div>
@@ -2392,27 +1041,25 @@ FULL STACK DEVELOPER
 
 </div>
 
-
 </section>
 
 
-
-<!-- =====================================================
-     MARQUEE
-===================================================== -->
+<!-- ================= MARQUEE ================= -->
 
 <div class="marquee">
 
 <div class="marquee-track">
 
-<span>SOFTWARE DEVELOPMENT</span>
 <span>WEB DEVELOPMENT</span>
-<span>PRODUCT THINKING</span>
+<span>SOFTWARE DEVELOPMENT</span>
+<span>FULL STACK</span>
+<span>CYBERSECURITY</span>
 <span>SYSTEM DESIGN</span>
 
-<span>SOFTWARE DEVELOPMENT</span>
 <span>WEB DEVELOPMENT</span>
-<span>PRODUCT THINKING</span>
+<span>SOFTWARE DEVELOPMENT</span>
+<span>FULL STACK</span>
+<span>CYBERSECURITY</span>
 <span>SYSTEM DESIGN</span>
 
 </div>
@@ -2420,35 +1067,27 @@ FULL STACK DEVELOPER
 </div>
 
 
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
 <div class="container">
 
+<div class="section-top">
 
-<div class="section-top reveal">
-
-<div class="section-number">
-01 / ABOUT
+<div class="number">
+01 / ABOUT ME
 </div>
-
 
 <div>
 
 <h2 class="section-title">
-Not just code. I build with purpose.
+A developer in the making.
 </h2>
 
-
-<p class="section-description">
-
-I like understanding the problem first, then designing
-the technology around it.
-
+<p class="description">
+I believe good technology starts with understanding
+the problem and then building a simple solution around it.
 </p>
 
 </div>
@@ -2456,95 +1095,65 @@ the technology around it.
 </div>
 
 
+<div class="about">
 
-<div class="about-grid">
+<div class="about-big">
 
-
-<div class="about-big reveal">
-
-A <span>BCA student</span> building the
-skills to become a full-stack developer
+I'm a <span>BCA student</span> building
+the knowledge and practical skills needed
+to become a strong full-stack developer
 and future software architect.
 
 </div>
 
 
-<div class="about-text reveal">
+<div class="about-text">
 
 <p>
-
-My interests span web development, application
-development, cloud computing, cybersecurity,
-databases and software architecture.
-
+My interests include web development,
+application development, databases,
+cloud computing, cybersecurity and
+software architecture.
 </p>
 
-
 <p>
-
-I learn by building practical projects and turning
-concepts into working products.
-
+I enjoy learning by creating practical
+applications and experimenting with
+different technologies.
 </p>
 
-
 <p>
-
-My long-term goal is to design scalable,
-reliable and meaningful software systems.
-
+My long-term goal is to understand how
+large software systems are designed,
+developed and maintained.
 </p>
 
 
 <div class="stats">
 
 <div class="stat">
-
-<strong>01</strong>
-
-<span>
-Featured Product
-</span>
-
+<strong>BCA</strong>
+<span>Student</span>
 </div>
 
-
 <div class="stat">
-
-<strong>05+</strong>
-
-<span>
-Development Areas
-</span>
-
+<strong>5+</strong>
+<span>Development Areas</span>
 </div>
 
-
 <div class="stat">
-
 <strong>∞</strong>
-
-<span>
-Ideas to Explore
-</span>
-
+<span>Things to Learn</span>
 </div>
-
 
 <div class="stat">
-
 <strong>01</strong>
-
-<span>
-Big Goal
-</span>
-
+<span>Big Goal</span>
 </div>
 
 </div>
 
 </div>
-
 
 </div>
 
@@ -2553,35 +1162,27 @@ Big Goal
 </section>
 
 
-
-<!-- =====================================================
-     SKILLS
-===================================================== -->
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
 <div class="container">
 
+<div class="section-top">
 
-<div class="section-top reveal">
-
-<div class="section-number">
-02 / EXPERTISE
+<div class="number">
+02 / SKILLS
 </div>
-
 
 <div>
 
 <h2 class="section-title">
-What I build with.
+What I work with.
 </h2>
 
-
-<p class="section-description">
-
-Click any technology area to explore how I use it,
-what I know and what I can build with it.
-
+<p class="description">
+Click a skill area to see what I know and
+what I can build with it.
 </p>
 
 </div>
@@ -2589,159 +1190,184 @@ what I know and what I can build with it.
 </div>
 
 
+<div class="skills">
 
-<div class="skill-list">
+<div class="skill" onclick="openSkill('frontend')">
 
+<div class="skill-number">01</div>
 
-<div
-class="skill reveal"
-onclick="openSkill('frontend')"
->
-
-<div class="skill-number">
-01
+<div>
+<h3>Frontend Development</h3>
+<p>HTML · CSS · JavaScript · Tailwind CSS</p>
 </div>
 
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="skill" onclick="openSkill('backend')">
+
+<div class="skill-number">02</div>
+
+<div>
+<h3>Backend Development</h3>
+<p>Python · Flask · REST APIs</p>
+</div>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="skill" onclick="openSkill('database')">
+
+<div class="skill-number">03</div>
+
+<div>
+<h3>Databases</h3>
+<p>MySQL · SQL · DBMS</p>
+</div>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="skill" onclick="openSkill('programming')">
+
+<div class="skill-number">04</div>
+
+<div>
+<h3>Programming & App Development</h3>
+<p>Python · Dart · Flutter</p>
+</div>
+
+<div class="arrow">↗</div>
+
+</div>
+
+
+<div class="skill" onclick="openSkill('tools')">
+
+<div class="skill-number">05</div>
+
+<div>
+<h3>Tools & Platforms</h3>
+<p>Git · GitHub · VS Code · Android Studio</p>
+</div>
+
+<div class="arrow">↗</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CERTIFICATES ================= -->
+
+<section id="certificates">
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="number">
+03 / CERTIFICATES
+</div>
 
 <div>
 
-<h3>
-Frontend Development
-</h3>
+<h2 class="section-title">
+Learning backed by proof.
+</h2>
 
-<p>
-HTML · CSS · JavaScript · Tailwind CSS
+<p class="description">
+A few certifications that represent
+my learning beyond the classroom.
 </p>
 
 </div>
 
-
-<div class="skill-arrow">
-↗
-</div>
-
 </div>
 
 
-
-<div
-class="skill reveal"
-onclick="openSkill('backend')"
->
-
-<div class="skill-number">
-02
-</div>
+<div class="certificate-grid">
 
 
-<div>
+<!-- CERTIFICATE 1 -->
+
+<div class="certificate">
+
+<a
+href="assets/intellectual property rights.png"
+target="_blank">
+
+<img
+src="assets/intellectual property rights.png"
+alt="Intellectual Property Rights Certificate">
+
+</a>
+
+<div class="certificate-info">
 
 <h3>
-Backend Development
+Intellectual Property Rights
 </h3>
 
 <p>
-Python · Flask · REST APIs
+Professional Certification
 </p>
 
+<a
+href="assets/intellectual property rights.png"
+target="_blank">
+
+View Certificate ↗
+
+</a>
+
+</div>
+
 </div>
 
 
-<div class="skill-arrow">
-↗
-</div>
+<!-- CERTIFICATE 2 -->
 
-</div>
+<div class="certificate">
 
+<a
+href="assets/Data science annd analytics.png"
+target="_blank">
 
+<img
+src="assets/Data science annd analytics.png"
+alt="Data Science and Analytics Certificate">
 
-<div
-class="skill reveal"
-onclick="openSkill('database')"
->
+</a>
 
-<div class="skill-number">
-03
-</div>
-
-
-<div>
+<div class="certificate-info">
 
 <h3>
-Data & Databases
+Data Science & Analytics
 </h3>
 
 <p>
-MySQL · SQL · DBMS
+Professional Certification
 </p>
 
-</div>
+<a
+href="assets/Data science annd analytics.png"
+target="_blank">
 
+View Certificate ↗
 
-<div class="skill-arrow">
-↗
-</div>
+</a>
 
-</div>
-
-
-
-<div
-class="skill reveal"
-onclick="openSkill('app')"
->
-
-<div class="skill-number">
-04
-</div>
-
-
-<div>
-
-<h3>
-Application Development
-</h3>
-
-<p>
-Dart · Flutter
-</p>
-
-</div>
-
-
-<div class="skill-arrow">
-↗
-</div>
-
-</div>
-
-
-
-<div
-class="skill reveal"
-onclick="openSkill('tools')"
->
-
-<div class="skill-number">
-05
-</div>
-
-
-<div>
-
-<h3>
-Tools & Platforms
-</h3>
-
-<p>
-Git · GitHub · VS Code · Android Studio
-</p>
-
-</div>
-
-
-<div class="skill-arrow">
-↗
 </div>
 
 </div>
@@ -2754,149 +1380,83 @@ Git · GitHub · VS Code · Android Studio
 </section>
 
 
+<!-- ================= RAILFLY DEMO ================= -->
 
-<!-- =====================================================
-     RAILFLY
-===================================================== -->
-
-<section
-id="railfly"
-class="railfly-section"
->
+<section id="demo" class="demo-section">
 
 <div class="container">
 
+<div class="section-top">
 
-<div class="section-top reveal">
-
-<div class="section-number">
-03 / FEATURED PRODUCT
+<div class="number">
+04 / DEMO
 </div>
-
 
 <div>
 
 <h2 class="section-title">
-The project that represents my vision.
+A little something I built.
 </h2>
 
+<p class="description">
 
-<p class="section-description">
-
-RailFly connects train and flight journeys into one
-smart travel experience.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="railfly reveal">
-
-
-<div class="railfly-head">
-
-<div>
-
-<div class="railfly-title">
-
-Rail<span>Fly</span>
-
-</div>
-
-
-<p class="section-description">
-
-A travel platform concept for searching,
-planning and tracking train and flight journeys.
+RailFly is included here as a small interactive
+demo to show how I approach interfaces and
+application ideas.
 
 </p>
 
 </div>
 
-
-<div class="railfly-tag">
-TRAIN + FLIGHT PLATFORM
-</div>
-
 </div>
 
 
-
-<!-- ================= RAILFLY DEMO ================= -->
-
-<div class="demo">
+<div class="demo-box">
 
 
-<div class="demo-top">
+<div class="demo-heading">
 
 <div class="demo-logo">
-
-<div class="demo-logo-box">
-RF
+Rail<span>Fly</span>
 </div>
 
-RailFly
-
-</div>
-
-
-<div class="online">
-SYSTEM ONLINE
+<div class="demo-note">
+INTERACTIVE DEMO
 </div>
 
 </div>
-
 
 
 <!-- MODE -->
 
-<div class="demo-tabs">
+<div class="tabs">
 
-<button
-class="demo-tab active"
-data-type="train"
->
+<button class="tab active" data-type="train">
 🚆 Train
 </button>
 
-
-<button
-class="demo-tab"
-data-type="flight"
->
+<button class="tab" data-type="flight">
 ✈ Flight
 </button>
 
 </div>
 
 
-
 <!-- SEARCH -->
 
-<div class="demo-search">
+<div class="search">
 
 
-<div class="demo-field">
+<div class="field">
 
-<label>
-From
-</label>
-
+<label>FROM</label>
 
 <select id="fromCity">
 
 <option>Bengaluru</option>
-
 <option>Chennai</option>
-
 <option>Mumbai</option>
-
 <option>Delhi</option>
-
 <option>Hyderabad</option>
 
 </select>
@@ -2904,24 +1464,16 @@ From
 </div>
 
 
+<div class="field">
 
-<div class="demo-field">
-
-<label>
-To
-</label>
-
+<label>TO</label>
 
 <select id="toCity">
 
 <option>Chennai</option>
-
 <option>Bengaluru</option>
-
 <option>Mumbai</option>
-
 <option>Delhi</option>
-
 <option>Hyderabad</option>
 
 </select>
@@ -2929,63 +1481,37 @@ To
 </div>
 
 
+<div class="field">
 
-<div class="demo-field">
-
-<label>
-Date
-</label>
-
+<label>DATE</label>
 
 <input
 type="date"
 id="travelDate"
->
+style="border:0;background:transparent;width:100%;outline:0;">
 
 </div>
-
 
 
 <button
 class="search-btn"
-id="searchBtn"
->
+id="searchBtn">
+
 Search
+
 </button>
 
-
 </div>
-
 
 
 <!-- RESULT -->
 
-<div
-class="result"
-id="demoResult"
->
-
-
-<div class="result-heading">
-
-<strong id="resultTitle">
-Recommended Journey
-</strong>
-
-
-<span class="best">
-BEST OPTION
-</span>
-
-</div>
-
-
+<div class="result" id="demoResult">
 
 <div class="trip">
 
 
 <div class="route">
-
 
 <div class="city">
 
@@ -2999,9 +1525,7 @@ Bengaluru
 
 </div>
 
-
 <div class="route-line"></div>
-
 
 <div class="city">
 
@@ -3018,91 +1542,43 @@ Chennai
 </div>
 
 
-
 <div class="trip-info">
 
+<div class="info">
+<small>Departure</small>
+<strong id="departure">06:30 AM</strong>
+</div>
 
 <div class="info">
-
-<small>
-Departure
-</small>
-
-<strong id="departure">
-06:30 AM
-</strong>
-
+<small>Arrival</small>
+<strong id="arrival">12:45 PM</strong>
 </div>
-
 
 <div class="info">
-
-<small>
-Arrival
-</small>
-
-<strong id="arrival">
-12:45 PM
-</strong>
-
+<small>Platform</small>
+<strong id="platform">04</strong>
 </div>
-
 
 <div class="info">
-
-<small>
-Platform
-</small>
-
-<strong id="platform">
-04
-</strong>
+<small>Coach</small>
+<strong id="coach">B2</strong>
+</div>
 
 </div>
 
 
-<div class="info">
-
-<small>
-Coach
-</small>
-
-<strong id="coach">
-B2
-</strong>
-
-</div>
-
-
-</div>
-
-
-
-<button
-class="track-btn"
-id="trackBtn"
->
-Track Journey
+<button class="track" id="trackBtn">
+Track
 </button>
 
-
 </div>
 
 
-
-<div
-class="live"
-id="liveStatus"
->
+<div class="status" id="liveStatus">
 ● Journey is on schedule.
 </div>
 
-
 </div>
-
-
-</div>
-
 
 </div>
 
@@ -3111,395 +1587,69 @@ id="liveStatus"
 </section>
 
 
+<!-- ================= JOURNEY ================= -->
 
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section id="projects">
+<section id="journey">
 
 <div class="container">
 
+<div class="section-top">
 
-<div class="section-top reveal">
-
-<div class="section-number">
-04 / PROJECTS
+<div class="number">
+05 / JOURNEY
 </div>
-
 
 <div>
 
 <h2 class="section-title">
-Selected work.
-</h2>
-
-
-<p class="section-description">
-
-A few projects through which I turn learning
-into practical development experience.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="project-grid">
-
-
-<div class="project-card featured reveal">
-
-
-<div class="project-number">
-01 / FEATURED
-</div>
-
-
-<h3>
-RailFly
-</h3>
-
-
-<p>
-
-A train + flight travel platform concept featuring
-journey search, smart planning, tracking and
-passenger-focused features.
-
-</p>
-
-
-<div class="tech">
-
-<span>
-HTML
-</span>
-
-<span>
-CSS
-</span>
-
-<span>
-JavaScript
-</span>
-
-<span>
-Python
-</span>
-
-<span>
-Flask
-</span>
-
-<span>
-Flutter
-</span>
-
-</div>
-
-
-<a
-href="#railfly"
-class="project-link"
->
-Try Interactive Demo ↗
-</a>
-
-
-</div>
-
-
-
-<div class="project-card reveal">
-
-
-<div class="project-number">
-02 / WEB
-</div>
-
-
-<h3>
-Portfolio
-</h3>
-
-
-<p>
-
-A personal developer portfolio focused on
-projects, skills, certifications and my
-development journey.
-
-</p>
-
-
-<div class="tech">
-
-<span>
-HTML
-</span>
-
-<span>
-CSS
-</span>
-
-<span>
-JavaScript
-</span>
-
-</div>
-
-
-<a
-href="#"
-class="project-link"
->
-Current Website ↗
-</a>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CERTIFICATES
-===================================================== -->
-
-<section id="certificates">
-
-<div class="container">
-
-
-<div class="section-top reveal">
-
-<div class="section-number">
-05 / CERTIFICATIONS
-</div>
-
-
-<div>
-
-<h2 class="section-title">
-Learning backed by proof.
-</h2>
-
-
-<p class="section-description">
-
-Certifications that represent the knowledge and
-skills I've developed beyond the classroom.
-
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="certificate-grid">
-
-
-<!-- CERTIFICATE 1 -->
-
-<div class="certificate reveal">
-
-
-<a
-href="assets/intellectual property rights.png"
-target="_blank"
->
-
-<img
-src="assets/intellectual property rights.png"
-alt="Intellectual Property Rights Certificate"
->
-
-</a>
-
-
-<div class="certificate-info">
-
-<h3>
-Intellectual Property Rights
-</h3>
-
-
-<p>
-Professional Certification
-</p>
-
-
-<a
-href="assets/intellectual property rights.png"
-target="_blank"
->
-View Certificate ↗
-</a>
-
-</div>
-
-
-</div>
-
-
-
-<!-- CERTIFICATE 2 -->
-
-<div class="certificate reveal">
-
-
-<a
-href="assets/Data science annd analytics.png"
-target="_blank"
->
-
-<img
-src="assets/Data science annd analytics.png"
-alt="Data Science and Analytics Certificate"
->
-
-</a>
-
-
-<div class="certificate-info">
-
-<h3>
-Data Science & Analytics
-</h3>
-
-
-<p>
-Professional Certification
-</p>
-
-
-<a
-href="assets/Data science annd analytics.png"
-target="_blank"
->
-View Certificate ↗
-</a>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
-     JOURNEY
-===================================================== -->
-
-<section>
-
-<div class="container">
-
-
-<div class="section-top reveal">
-
-<div class="section-number">
-06 / JOURNEY
-</div>
-
-
-<div>
-
-<h2 class="section-title">
-The direction I'm heading.
+Where I'm heading.
 </h2>
 
 </div>
 
 </div>
-
 
 
 <div class="journey">
 
 
-<div class="journey-card reveal">
+<div class="journey-card">
 
-<span>
-NOW
-</span>
+<span>NOW</span>
 
-
-<h3>
-BCA Student
-</h3>
-
+<h3>BCA Student</h3>
 
 <p>
-
 Building strong foundations in programming,
 web development, databases and computer science.
-
 </p>
 
 </div>
 
 
+<div class="journey-card">
 
-<div class="journey-card reveal">
+<span>NEXT</span>
 
-<span>
-NEXT
-</span>
-
-
-<h3>
-Full Stack Developer
-</h3>
-
+<h3>Full Stack Developer</h3>
 
 <p>
-
-Developing complete applications across
+Building complete applications using
 frontend, backend, APIs and databases.
-
 </p>
 
 </div>
 
 
+<div class="journey-card">
 
-<div class="journey-card reveal">
+<span>FUTURE</span>
 
-<span>
-FUTURE
-</span>
-
-
-<h3>
-Software Architect
-</h3>
-
+<h3>Software Architect</h3>
 
 <p>
-
-Designing scalable, reliable and well-structured
-software systems.
-
+Designing scalable, reliable and
+well-structured software systems.
 </p>
 
 </div>
@@ -3512,65 +1662,48 @@ software systems.
 </section>
 
 
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
 <div class="container">
 
+<div class="contact">
 
-<div class="contact reveal">
-
-
-<div class="section-number">
-07 / CONTACT
+<div class="number">
+06 / CONTACT
 </div>
 
-
 <h2>
-
 Let's build
 <span>something.</span>
-
 </h2>
 
-
 <p>
-
-Have an idea, opportunity or project?
-Let's connect and create something meaningful.
-
+Have an idea, opportunity or simply want
+to connect? Feel free to reach out.
 </p>
 
 
 <div class="socials">
 
-
 <a href="mailto:yourmail@gmail.com">
 Email ↗
 </a>
 
-
 <a
 href="https://github.com/Shaktivelseena"
-target="_blank"
->
+target="_blank">
+
 GitHub ↗
+
 </a>
 
-
-<a
-href="#"
->
+<a href="#">
 LinkedIn ↗
 </a>
 
-
 </div>
-
 
 </div>
 
@@ -3579,19 +1712,15 @@ LinkedIn ↗
 </section>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="container footer-inner">
+<div class="container footer">
 
 <span>
 © 2026 Shaktivel
 </span>
-
 
 <span>
 Designed & built with purpose.
@@ -3602,607 +1731,286 @@ Designed & built with purpose.
 </footer>
 
 
+<!-- ================= SKILL MODAL ================= -->
 
-<!-- =====================================================
-     SKILL MODAL
-===================================================== -->
-
-<div
-class="skill-modal"
-id="skillModal"
->
-
+<div class="modal" id="skillModal">
 
 <div class="modal-box">
 
-
-<button
-class="modal-close"
-onclick="closeSkill()"
->
+<button class="close" onclick="closeSkill()">
 ×
 </button>
 
-
-<div
-class="modal-number"
-id="modalNumber"
->
+<div class="modal-number" id="modalNumber">
 01
 </div>
-
-
-<div
-class="modal-icon"
-id="modalIcon"
->
-⌘
-</div>
-
 
 <h2 id="modalTitle">
 Frontend Development
 </h2>
 
-
-<p
-class="modal-description"
-id="modalDescription"
->
+<p id="modalDescription">
 </p>
 
-
-<div
-class="modal-tech"
-id="modalTech"
->
-</div>
-
-
-<div class="modal-section">
-
-<label>
-WHAT I CAN BUILD
-</label>
-
-
-<p id="modalBuild">
-</p>
-
-</div>
-
-
-<div class="modal-section">
-
-<label>
-MY APPROACH
-</label>
-
-
-<p id="modalApproach">
-</p>
-
-</div>
-
-
+<div class="modal-tech" id="modalTech">
 </div>
 
 </div>
 
+</div>
 
 
 <script>
 
-/* =====================================================
-   MOBILE NAV
-===================================================== */
+/* ================= MOBILE MENU ================= */
 
-const menu =
-document.getElementById("menu");
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
 
-const navLinks =
-document.getElementById("navLinks");
-
-
-menu.addEventListener("click",()=>{
-
+menu.onclick = () => {
     navLinks.classList.toggle("active");
-
-});
-
-
-document
-.querySelectorAll(".nav-links a")
-.forEach(link=>{
-
-    link.addEventListener("click",()=>{
-
-        navLinks.classList.remove("active");
-
-    });
-
-});
+};
 
 
-
-/* =====================================================
-   REVEAL ANIMATION
-===================================================== */
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},
-
-{
-    threshold:.12
-}
-
-);
-
-
-document
-.querySelectorAll(".reveal")
-.forEach(item=>{
-
-    observer.observe(item);
-
-});
-
-
-
-/* =====================================================
-   SKILL INFORMATION
-===================================================== */
+/* ================= SKILL DATA ================= */
 
 const skills = {
 
 frontend:{
-
     number:"01",
-
-    icon:"⌘",
-
     title:"Frontend Development",
-
-    description:
-    "I use frontend technologies to create responsive, interactive and user-focused web experiences.",
-
-    tech:[
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Tailwind CSS"
-    ],
-
-    build:
-    "Responsive websites, portfolios, dashboards, landing pages and interactive web applications.",
-
-    approach:
-    "I focus on clean structure, responsive layouts, reusable components, accessibility and smooth user interactions."
-
+    description:"I create responsive and interactive websites using modern frontend technologies.",
+    tech:["HTML","CSS","JavaScript","Tailwind CSS"]
 },
-
 
 backend:{
-
     number:"02",
-
-    icon:"⚙",
-
     title:"Backend Development",
-
-    description:
-    "I work with backend technologies to create application logic, APIs and server-side functionality.",
-
-    tech:[
-        "Python",
-        "Flask",
-        "REST APIs"
-    ],
-
-    build:
-    "Application backends, APIs, authentication systems and services that communicate with databases.",
-
-    approach:
-    "I focus on clear application logic, reusable APIs, simple architecture and reliable communication between systems."
-
+    description:"I use Python and Flask to create application logic and REST APIs.",
+    tech:["Python","Flask","REST APIs"]
 },
-
 
 database:{
-
     number:"03",
-
-    icon:"▣",
-
-    title:"Data & Databases",
-
-    description:
-    "I use database technologies to organize, store and retrieve application information.",
-
-    tech:[
-        "MySQL",
-        "SQL",
-        "DBMS"
-    ],
-
-    build:
-    "Registration systems, booking systems, user records, application data and structured information systems.",
-
-    approach:
-    "I focus on logical database design, relationships, meaningful queries and reliable data management."
-
+    title:"Databases",
+    description:"I work with structured data and relational databases.",
+    tech:["MySQL","SQL","DBMS"]
 },
 
-
-app:{
-
+programming:{
     number:"04",
-
-    icon:"▱",
-
-    title:"Application Development",
-
-    description:
-    "I explore cross-platform application development using Flutter and Dart.",
-
-    tech:[
-        "Flutter",
-        "Dart"
-    ],
-
-    build:
-    "Cross-platform applications, prototypes, utility applications and journey-focused products.",
-
-    approach:
-    "I focus on reusable components, clean interfaces, responsive layouts and consistent experiences."
-
+    title:"Programming & App Development",
+    description:"I explore programming and application development using Python, Dart and Flutter.",
+    tech:["Python","Dart","Flutter"]
 },
-
 
 tools:{
-
     number:"05",
-
-    icon:"⌘",
-
     title:"Tools & Platforms",
-
-    description:
-    "The tools I use to build, manage, test and maintain my projects.",
-
-    tech:[
-        "Git",
-        "GitHub",
-        "VS Code",
-        "Android Studio"
-    ],
-
-    build:
-    "Version-controlled projects, repositories, development environments and application prototypes.",
-
-    approach:
-    "I use Git for version control, GitHub for project management and modern development tools for an organized workflow."
-
+    description:"I use development and version-control tools to build and manage projects.",
+    tech:["Git","GitHub","VS Code","Android Studio"]
 }
 
 };
 
 
+/* ================= SKILL MODAL ================= */
 
 function openSkill(type){
 
-    const data =
-    skills[type];
+    const data = skills[type];
 
+    document.getElementById("modalNumber").textContent =
+        data.number;
 
-    document
-    .getElementById("modalNumber")
-    .textContent =
-    data.number;
+    document.getElementById("modalTitle").textContent =
+        data.title;
 
+    document.getElementById("modalDescription").textContent =
+        data.description;
 
-    document
-    .getElementById("modalIcon")
-    .textContent =
-    data.icon;
+    const tech = document.getElementById("modalTech");
 
+    tech.innerHTML = "";
 
-    document
-    .getElementById("modalTitle")
-    .textContent =
-    data.title;
+    data.tech.forEach(item => {
 
+        const span = document.createElement("span");
 
-    document
-    .getElementById("modalDescription")
-    .textContent =
-    data.description;
-
-
-    document
-    .getElementById("modalBuild")
-    .textContent =
-    data.build;
-
-
-    document
-    .getElementById("modalApproach")
-    .textContent =
-    data.approach;
-
-
-    const tech =
-    document.getElementById("modalTech");
-
-
-    tech.innerHTML="";
-
-
-    data.tech.forEach(item=>{
-
-        const span =
-        document.createElement("span");
-
-        span.textContent=item;
+        span.textContent = item;
 
         tech.appendChild(span);
 
     });
 
-
-    document
-    .getElementById("skillModal")
-    .classList.add("active");
-
-
-    document.body.style.overflow="hidden";
+    document.getElementById("skillModal").classList.add("show");
 
 }
-
 
 
 function closeSkill(){
 
-    document
-    .getElementById("skillModal")
-    .classList.remove("active");
-
-
-    document.body.style.overflow="";
+    document.getElementById("skillModal").classList.remove("show");
 
 }
 
 
+document.getElementById("skillModal").onclick = event => {
 
-document
-.getElementById("skillModal")
-.addEventListener("click",(event)=>{
-
-    if(event.target.id==="skillModal"){
-
+    if(event.target.id === "skillModal"){
         closeSkill();
-
     }
 
-});
+};
 
 
-document.addEventListener("keydown",(event)=>{
+/* ================= RAILFLY DEMO ================= */
 
-    if(event.key==="Escape"){
+const tabs = document.querySelectorAll(".tab");
 
-        closeSkill();
+let journeyType = "train";
 
-    }
-
-});
-
-
-
-/* =====================================================
-   RAILFLY DEMO
-===================================================== */
-
-const tabs =
-document.querySelectorAll(".demo-tab");
-
-let journeyType="train";
-
-
-tabs.forEach(tab=>{
-
-    tab.addEventListener("click",()=>{
-
-        tabs.forEach(item=>{
-
-            item.classList.remove("active");
-
-        });
-
-
-        tab.classList.add("active");
-
-
-        journeyType =
-        tab.dataset.type;
-
-
-        updateJourney();
-
-    });
-
-});
-
-
-
-const cityCodes={
+const cityCodes = {
 
     Bengaluru:"BLR",
-
     Chennai:"MAA",
-
     Mumbai:"BOM",
-
     Delhi:"DEL",
-
     Hyderabad:"HYD"
 
 };
 
 
+tabs.forEach(tab => {
+
+    tab.onclick = () => {
+
+        tabs.forEach(item =>
+            item.classList.remove("active")
+        );
+
+        tab.classList.add("active");
+
+        journeyType = tab.dataset.type;
+
+        updateJourney();
+
+    };
+
+});
+
 
 function updateJourney(){
 
-    const departure =
-    document.getElementById("departure");
+    if(journeyType === "flight"){
 
-    const arrival =
-    document.getElementById("arrival");
+        document.getElementById("departure").textContent =
+            "08:10 AM";
 
-    const platform =
-    document.getElementById("platform");
+        document.getElementById("arrival").textContent =
+            "09:20 AM";
 
-    const coach =
-    document.getElementById("coach");
+        document.getElementById("platform").textContent =
+            "Gate 18";
 
-
-    if(journeyType==="flight"){
-
-        departure.textContent="08:10 AM";
-
-        arrival.textContent="09:20 AM";
-
-        platform.textContent="Gate 18";
-
-        coach.textContent="6E 421";
+        document.getElementById("coach").textContent =
+            "6E 421";
 
     }
 
     else{
 
-        departure.textContent="06:30 AM";
+        document.getElementById("departure").textContent =
+            "06:30 AM";
 
-        arrival.textContent="12:45 PM";
+        document.getElementById("arrival").textContent =
+            "12:45 PM";
 
-        platform.textContent="04";
+        document.getElementById("platform").textContent =
+            "04";
 
-        coach.textContent="B2";
+        document.getElementById("coach").textContent =
+            "B2";
 
     }
 
 }
 
 
+/* ================= SEARCH ================= */
 
-document
-.getElementById("searchBtn")
-.addEventListener("click",()=>{
-
+document.getElementById("searchBtn").onclick = () => {
 
     const from =
-    document.getElementById("fromCity").value;
-
+        document.getElementById("fromCity").value;
 
     const to =
-    document.getElementById("toCity").value;
+        document.getElementById("toCity").value;
 
 
-    if(from===to){
+    if(from === to){
 
-        alert(
-        "Please select different cities."
-        );
+        alert("Please select different cities.");
 
         return;
 
     }
 
 
-    document
-    .getElementById("resultFrom")
-    .textContent =
-    cityCodes[from];
+    document.getElementById("resultFrom").textContent =
+        cityCodes[from];
 
+    document.getElementById("resultTo").textContent =
+        cityCodes[to];
 
-    document
-    .getElementById("resultTo")
-    .textContent =
-    cityCodes[to];
+    document.getElementById("resultFromName").textContent =
+        from;
 
-
-    document
-    .getElementById("resultFromName")
-    .textContent =
-    from;
-
-
-    document
-    .getElementById("resultToName")
-    .textContent =
-    to;
+    document.getElementById("resultToName").textContent =
+        to;
 
 
     updateJourney();
 
 
-    document
-    .getElementById("demoResult")
-    .classList.add("show");
+    document.getElementById("demoResult")
+        .classList.add("show");
+
+    document.getElementById("liveStatus")
+        .classList.remove("show");
+
+};
 
 
-    document
-    .getElementById("liveStatus")
-    .classList.remove("show");
+/* ================= TRACK ================= */
 
-});
-
-
-
-document
-.getElementById("trackBtn")
-.addEventListener("click",()=>{
-
+document.getElementById("trackBtn").onclick = () => {
 
     const status =
-    document.getElementById("liveStatus");
+        document.getElementById("liveStatus");
 
 
     status.classList.add("show");
 
 
-    if(journeyType==="train"){
+    if(journeyType === "train"){
 
-        status.textContent=
+        status.textContent =
         "● Train is on schedule. Platform 04 confirmed. Coach B2 is ready.";
 
     }
 
     else{
 
-        status.textContent=
-        "● Flight is on schedule. Gate 18 confirmed. Boarding will begin soon.";
+        status.textContent =
+        "● Flight is on schedule. Gate 18 confirmed. Gate 18 is ready.";
 
     }
 
-});
-
+};
 
 </script>
 
-
 </body>
 </html>
+```
